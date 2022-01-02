@@ -1,0 +1,1508 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <title>Hacker News Top Charts - 2016-01-01 to 2017-01-01</title>
+    <meta name="description" content="Top Hacker News posts from January 01, 2016 to January 01, 2017">
+    <style>
+        * {
+            font-family: monospace;
+            font-size: 1em;
+            /* border: 0;
+            margin: 0;
+            padding: 0; */
+            list-style: none;
+            font-weight: normal;
+            color: #000;
+        }
+
+        strong,
+        b {
+            font-weight: bold
+        }
+
+        em,
+        i {
+            font-style: italic
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #900
+        }
+
+        h1 code,
+        h2 code,
+        h3 code,
+        h4 code,
+        h5 code,
+        h6 code {
+            background: #fff
+        }
+
+        h1::before {
+            content: "# ";
+            color: #09a
+        }
+
+        h2::before {
+            content: "## ";
+            color: #09a
+        }
+
+        h3::before {
+            content: "### ";
+            color: #09a
+        }
+
+        h4::before {
+            content: "#### ";
+            color: #09a
+        }
+
+        h5::before {
+            content: "##### ";
+            color: #09a
+        }
+
+        h6::before {
+            content: "###### ";
+            color: #09a
+        }
+        a:hover{ color:#f00; }
+
+        .header {
+            padding: 20px 0px 20px 0px;
+            text-align: center;
+        }
+
+        .section {
+            padding: 1rem 1rem;
+        }
+        .section-charts{
+            padding-top: 5rem;
+        }
+        .section-title{
+            padding-bottom: 1rem;
+        }
+
+        .column.year,
+        .column.month,
+        .column.week {
+            text-align: center;
+        }
+
+        .year, .month, .week {
+            font-size: 1.1em;
+        }
+        .week{
+            font-size: .8em;
+        }
+
+        .top-title {
+            text-align: center;
+        }
+        .date-selector{
+            border-bottom: 1px solid #8e8e8e;
+        }
+        .week-selector{
+            max-height: 150px;
+            overflow: scroll;
+            border:none;
+        }
+        .is-active {
+            /* text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-decoration-color: red; */
+            text-decoration: none;
+            position: relative;
+            font-weight: bold;
+
+        }
+        .is-active:after {
+    content: '';
+
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    color: #fe93c8;
+
+    border-width: 0 0 3px;
+    border-style: solid;
+}
+.rank-no{
+    padding-right: 0px;
+    padding-left: 5px;
+    color: #6a6a6a;
+}
+.rank-no::after{
+    content: ".";
+    color: #fb0;
+    font-weight: bold;
+}
+.story-title{
+    padding-left: 0px;
+    padding-right: 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+white-space: nowrap;
+
+}
+.story-value{
+    padding-right: 0px;
+    position: relative;
+}
+.story-value::after{
+    content: "pt.";
+    position: absolute;
+    top: 5px;
+    font-size: .5em;
+    color: #09a;
+    font-weight: bold;
+}
+
+h1{
+    font-size: 1.5em;
+}
+h2{
+    font-size: 1.3em;
+}
+h3{
+    font-size: 1.1em;
+}
+    </style>
+</head>
+
+<body>
+    <section class="section heaader">
+        <div class="container" style="text-align: center;">
+            <h1>Top HN Stories</h1>
+            <p>[from <strong>Jan 01, 2016</strong> to <strong>Jan 01, 2017</strong>)</p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-mobile is-multiline date-selector">
+                
+                    <div class="column has-text-centered year"><a href="/2006.html" >2006</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2007.html" >2007</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2008.html" >2008</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2009.html" >2009</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2010.html" >2010</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2011.html" >2011</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2012.html" >2012</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2013.html" >2013</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2014.html" >2014</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2015.html" >2015</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2016.html" class="is-active">2016</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2017.html" >2017</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2018.html" >2018</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2019.html" >2019</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2020.html" >2020</a></div>
+                
+                    <div class="column has-text-centered year"><a href="/2021.html" >2021</a></div>
+                
+            </div>
+            <div class="columns is-mobile is-multiline date-selector">
+                
+                    <div class="column has-text-centered month"><a href="/2016-01.html" >Jan</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-02.html" >Feb</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-03.html" >Mar</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-04.html" >Apr</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-05.html" >May</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-06.html" >Jun</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-07.html" >Jul</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-08.html" >Aug</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-09.html" >Sep</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-10.html" >Oct</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-11.html" >Nov</a></div>
+                
+                    <div class="column has-text-centered month"><a href="/2016-12.html" >Dec</a></div>
+                
+            </div>
+            <div class="columns is-mobile is-multiline date-selector week-selector">
+                
+                    <div class="column week"><a href="/2016-W1.html" > W1</a></div>
+                
+                    <div class="column week"><a href="/2016-W2.html" > W2</a></div>
+                
+                    <div class="column week"><a href="/2016-W3.html" > W3</a></div>
+                
+                    <div class="column week"><a href="/2016-W4.html" > W4</a></div>
+                
+                    <div class="column week"><a href="/2016-W5.html" > W5</a></div>
+                
+                    <div class="column week"><a href="/2016-W6.html" > W6</a></div>
+                
+                    <div class="column week"><a href="/2016-W7.html" > W7</a></div>
+                
+                    <div class="column week"><a href="/2016-W8.html" > W8</a></div>
+                
+                    <div class="column week"><a href="/2016-W9.html" > W9</a></div>
+                
+                    <div class="column week"><a href="/2016-W10.html" > W10</a></div>
+                
+                    <div class="column week"><a href="/2016-W11.html" > W11</a></div>
+                
+                    <div class="column week"><a href="/2016-W12.html" > W12</a></div>
+                
+                    <div class="column week"><a href="/2016-W13.html" > W13</a></div>
+                
+                    <div class="column week"><a href="/2016-W14.html" > W14</a></div>
+                
+                    <div class="column week"><a href="/2016-W15.html" > W15</a></div>
+                
+                    <div class="column week"><a href="/2016-W16.html" > W16</a></div>
+                
+                    <div class="column week"><a href="/2016-W17.html" > W17</a></div>
+                
+                    <div class="column week"><a href="/2016-W18.html" > W18</a></div>
+                
+                    <div class="column week"><a href="/2016-W19.html" > W19</a></div>
+                
+                    <div class="column week"><a href="/2016-W20.html" > W20</a></div>
+                
+                    <div class="column week"><a href="/2016-W21.html" > W21</a></div>
+                
+                    <div class="column week"><a href="/2016-W22.html" > W22</a></div>
+                
+                    <div class="column week"><a href="/2016-W23.html" > W23</a></div>
+                
+                    <div class="column week"><a href="/2016-W24.html" > W24</a></div>
+                
+                    <div class="column week"><a href="/2016-W25.html" > W25</a></div>
+                
+                    <div class="column week"><a href="/2016-W26.html" > W26</a></div>
+                
+                    <div class="column week"><a href="/2016-W27.html" > W27</a></div>
+                
+                    <div class="column week"><a href="/2016-W28.html" > W28</a></div>
+                
+                    <div class="column week"><a href="/2016-W29.html" > W29</a></div>
+                
+                    <div class="column week"><a href="/2016-W30.html" > W30</a></div>
+                
+                    <div class="column week"><a href="/2016-W31.html" > W31</a></div>
+                
+                    <div class="column week"><a href="/2016-W32.html" > W32</a></div>
+                
+                    <div class="column week"><a href="/2016-W33.html" > W33</a></div>
+                
+                    <div class="column week"><a href="/2016-W34.html" > W34</a></div>
+                
+                    <div class="column week"><a href="/2016-W35.html" > W35</a></div>
+                
+                    <div class="column week"><a href="/2016-W36.html" > W36</a></div>
+                
+                    <div class="column week"><a href="/2016-W37.html" > W37</a></div>
+                
+                    <div class="column week"><a href="/2016-W38.html" > W38</a></div>
+                
+                    <div class="column week"><a href="/2016-W39.html" > W39</a></div>
+                
+                    <div class="column week"><a href="/2016-W40.html" > W40</a></div>
+                
+                    <div class="column week"><a href="/2016-W41.html" > W41</a></div>
+                
+                    <div class="column week"><a href="/2016-W42.html" > W42</a></div>
+                
+                    <div class="column week"><a href="/2016-W43.html" > W43</a></div>
+                
+                    <div class="column week"><a href="/2016-W44.html" > W44</a></div>
+                
+                    <div class="column week"><a href="/2016-W45.html" > W45</a></div>
+                
+                    <div class="column week"><a href="/2016-W46.html" > W46</a></div>
+                
+                    <div class="column week"><a href="/2016-W47.html" > W47</a></div>
+                
+                    <div class="column week"><a href="/2016-W48.html" > W48</a></div>
+                
+                    <div class="column week"><a href="/2016-W49.html" > W49</a></div>
+                
+                    <div class="column week"><a href="/2016-W50.html" > W50</a></div>
+                
+                    <div class="column week"><a href="/2016-W51.html" > W51</a></div>
+                
+                    <div class="column week"><a href="/2016-W52.html" > W52</a></div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="section section-charts">
+        <div class="container">
+            <div class="columns is-widescreen is-multiline has-text-centered section-title">
+                <div class="column">
+                    <h2>Stories, Ask HN, Show HN</h2>
+                </div>
+            </div>
+            <div class="columns is-widescreen is-multiline">
+                <div class="column is-one-third-widescreen is-half-desktop">
+                    <div class="columns has-text-centered">
+                        <div class="column">
+                            <h3>Top stories</h3>
+                        </div>
+                    </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">1</div>
+                            <div class="column is-9 story-title"><a title="A Message to Our Customers" href="https://news.ycombinator.com/item?id=11116274" target="_blank">A Message to Our Customers</a></div>
+                            <div class="column story-value">5771</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">2</div>
+                            <div class="column is-9 story-title"><a title="UK votes to leave EU" href="https://news.ycombinator.com/item?id=11966167" target="_blank">UK votes to leave EU</a></div>
+                            <div class="column story-value">3125</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">3</div>
+                            <div class="column is-9 story-title"><a title="Pardon Snowden" href="https://news.ycombinator.com/item?id=12494998" target="_blank">Pardon Snowden</a></div>
+                            <div class="column story-value">2553</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">4</div>
+                            <div class="column is-9 story-title"><a title="Be Kind" href="https://news.ycombinator.com/item?id=12707606" target="_blank">Be Kind</a></div>
+                            <div class="column story-value">2475</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">5</div>
+                            <div class="column is-9 story-title"><a title="Tell HN: New features and a moderator" href="https://news.ycombinator.com/item?id=12073675" target="_blank">Tell HN: New features and a moderator</a></div>
+                            <div class="column story-value">2381</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">6</div>
+                            <div class="column is-9 story-title"><a title="Making Humans a Multiplanetary Species [video]" href="https://news.ycombinator.com/item?id=12591617" target="_blank">Making Humans a Multiplanetary Species [video]</a></div>
+                            <div class="column story-value">2123</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">7</div>
+                            <div class="column is-9 story-title"><a title="Microsoft to acquire LinkedIn for $26B" href="https://news.ycombinator.com/item?id=11893153" target="_blank">Microsoft to acquire LinkedIn for $26B</a></div>
+                            <div class="column story-value">2049</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">8</div>
+                            <div class="column is-9 story-title"><a title="Ubuntu on Windows" href="https://news.ycombinator.com/item?id=11390545" target="_blank">Ubuntu on Windows</a></div>
+                            <div class="column story-value">2049</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">9</div>
+                            <div class="column is-9 story-title"><a title="Physicists Detect Gravitational Waves, Proving Einstein Right" href="https://news.ycombinator.com/item?id=11080701" target="_blank">Physicists Detect Gravitational Waves, Proving Einstein Right</a></div>
+                            <div class="column story-value">2011</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">10</div>
+                            <div class="column is-9 story-title"><a title="Request For Research: Basic Income" href="https://news.ycombinator.com/item?id=10982340" target="_blank">Request For Research: Basic Income</a></div>
+                            <div class="column story-value">1876</div>
+                        </div>
+                    
+                </div>
+                <div class="column is-one-third-widescreen is-half-desktop">
+                    <div class="columns has-text-centered">
+                        <div class="column">
+                            <h3>Top Ask HN</h3>
+                        </div>
+                    </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">1</div>
+                            <div class="column is-9 story-title"><a title="How much do you make at Amazon? Here is how much I make at Amazon" href="https://news.ycombinator.com/item?id=11312984" target="_blank">How much do you make at Amazon? Here is how much I make at Amazon</a></div>
+                            <div class="column story-value">1213</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">2</div>
+                            <div class="column is-9 story-title"><a title="Who is firing?" href="https://news.ycombinator.com/item?id=12851987" target="_blank">Who is firing?</a></div>
+                            <div class="column story-value">1087</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">3</div>
+                            <div class="column is-9 story-title"><a title="What is your favorite YouTube channel for developers?" href="https://news.ycombinator.com/item?id=12702651" target="_blank">What is your favorite YouTube channel for developers?</a></div>
+                            <div class="column story-value">1081</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">4</div>
+                            <div class="column is-9 story-title"><a title="What is your favorite internet rabbit hole?" href="https://news.ycombinator.com/item?id=12778836" target="_blank">What is your favorite internet rabbit hole?</a></div>
+                            <div class="column story-value">1036</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">5</div>
+                            <div class="column is-9 story-title"><a title="How to get started with machine learning?" href="https://news.ycombinator.com/item?id=12713056" target="_blank">How to get started with machine learning?</a></div>
+                            <div class="column story-value">950</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">6</div>
+                            <div class="column is-9 story-title"><a title="Pick startups for YC to fund" href="https://news.ycombinator.com/item?id=11440627" target="_blank">Pick startups for YC to fund</a></div>
+                            <div class="column story-value">867</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">7</div>
+                            <div class="column is-9 story-title"><a title="What's your favorite tech talk?" href="https://news.ycombinator.com/item?id=12637239" target="_blank">What's your favorite tech talk?</a></div>
+                            <div class="column story-value">848</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">8</div>
+                            <div class="column is-9 story-title"><a title="Is web programming a series of hacks on hacks?" href="https://news.ycombinator.com/item?id=12477190" target="_blank">Is web programming a series of hacks on hacks?</a></div>
+                            <div class="column story-value">822</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">9</div>
+                            <div class="column is-9 story-title"><a title="What was your best passive income in 2016?" href="https://news.ycombinator.com/item?id=13150144" target="_blank">What was your best passive income in 2016?</a></div>
+                            <div class="column story-value">779</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">10</div>
+                            <div class="column is-9 story-title"><a title="Who is hiring? (November 2016)" href="https://news.ycombinator.com/item?id=12846216" target="_blank">Who is hiring? (November 2016)</a></div>
+                            <div class="column story-value">711</div>
+                        </div>
+                    
+                </div>
+                <div class="column is-one-third-widescreen is-half-desktop">
+                    <div class="columns has-text-centered">
+                        <div class="column">
+                            <h3>Top Show HN</h3>
+                        </div>
+                    </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">1</div>
+                            <div class="column is-9 story-title"><a title="Web Design in 4 minutes" href="https://news.ycombinator.com/item?id=12166687" target="_blank">Web Design in 4 minutes</a></div>
+                            <div class="column story-value">1624</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">2</div>
+                            <div class="column is-9 story-title"><a title="Wave function collapse algorithm" href="https://news.ycombinator.com/item?id=12612246" target="_blank">Wave function collapse algorithm</a></div>
+                            <div class="column story-value">1226</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">3</div>
+                            <div class="column is-9 story-title"><a title="A visual guide to the most popular CSS properties" href="https://news.ycombinator.com/item?id=13031492" target="_blank">A visual guide to the most popular CSS properties</a></div>
+                            <div class="column story-value">1117</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">4</div>
+                            <div class="column is-9 story-title"><a title="Generating fantasy maps – an interactive exploration" href="https://news.ycombinator.com/item?id=12260794" target="_blank">Generating fantasy maps – an interactive exploration</a></div>
+                            <div class="column story-value">1004</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">5</div>
+                            <div class="column is-9 story-title"><a title="Your Social Media Fingerprint (maybe NSFW)" href="https://news.ycombinator.com/item?id=12692190" target="_blank">Your Social Media Fingerprint (maybe NSFW)</a></div>
+                            <div class="column story-value">911</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">6</div>
+                            <div class="column is-9 story-title"><a title="Primitive Pictures" href="https://news.ycombinator.com/item?id=12539109" target="_blank">Primitive Pictures</a></div>
+                            <div class="column story-value">894</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">7</div>
+                            <div class="column is-9 story-title"><a title="I made an interactive Bootstrap 4 cheat sheet" href="https://news.ycombinator.com/item?id=11542005" target="_blank">I made an interactive Bootstrap 4 cheat sheet</a></div>
+                            <div class="column story-value">847</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">8</div>
+                            <div class="column is-9 story-title"><a title="New calendar app idea" href="https://news.ycombinator.com/item?id=11846108" target="_blank">New calendar app idea</a></div>
+                            <div class="column story-value">825</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">9</div>
+                            <div class="column is-9 story-title"><a title="I've been writing daily TILs for a year" href="https://news.ycombinator.com/item?id=11068902" target="_blank">I've been writing daily TILs for a year</a></div>
+                            <div class="column story-value">819</div>
+                        </div>
+                    
+                        <div class="columns is-mobile ">
+                            <div class="column is-1 rank-no">10</div>
+                            <div class="column is-9 story-title"><a title="Primitive for macOS" href="https://news.ycombinator.com/item?id=12958445" target="_blank">Primitive for macOS</a></div>
+                            <div class="column story-value">798</div>
+                        </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section section-charts">
+        <div class="container">
+            <div class="columns is-widescreen is-multiline has-text-centered section-title">
+                <div class="column">
+                    <h2>News, Tech Blogs, Scientific Publications and more</h2>
+                </div>
+            </div>
+            <div class="columns is-widescreen is-multiline">
+<!-- Groups -->
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['techcrunch.com', 'venturebeat.com', 'gizmodo.com', 'arstechnica.com', 'theverge.com', 'wired.com', 'vice.com', 'zdnet.com', 'engadget.com', 'technologyreview.com', 'cnet.com', 'vox.com', 'fastcompany.com', 'protocol.com', 'wired.co.uk', 'therecord.media', 'qz.com', 'techradar.com', 'techspot.com', 'pcgamer.com', 'thenextweb.com', 'restofworld.org']'">Tech news [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="SpaceX plans worldwide satellite Internet with low latency, gigabit speed" href="https://news.ycombinator.com/item?id=12982418" target="_blank">SpaceX plans worldwide satellite Internet with low latency, gigabit speed</a></div>
+            <div class="column story-value">1111</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="A SpaceX Falcon 9 rocket has exploded at Cape Canaveral" href="https://news.ycombinator.com/item?id=12405006" target="_blank">A SpaceX Falcon 9 rocket has exploded at Cape Canaveral</a></div>
+            <div class="column story-value">986</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="Xamarin now free in Visual Studio, and Xamarin SDK being open-sourced" href="https://news.ycombinator.com/item?id=11398033" target="_blank">Xamarin now free in Visual Studio, and Xamarin SDK being open-sourced</a></div>
+            <div class="column story-value">944</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="A Government Error Just Revealed Snowden Was the Target in the Lavabit Case" href="https://news.ycombinator.com/item?id=11308160" target="_blank">A Government Error Just Revealed Snowden Was the Target in the Lavabit Case</a></div>
+            <div class="column story-value">795</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="Alphabet Becomes the Most Valuable Public Company in the World" href="https://news.ycombinator.com/item?id=11015596" target="_blank">Alphabet Becomes the Most Valuable Public Company in the World</a></div>
+            <div class="column story-value">720</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="A decentralized web would give power back to the people online" href="https://news.ycombinator.com/item?id=12670958" target="_blank">A decentralized web would give power back to the people online</a></div>
+            <div class="column story-value">710</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Facebook admits it must do more to stop the spread of misinformation" href="https://news.ycombinator.com/item?id=12922318" target="_blank">Facebook admits it must do more to stop the spread of misinformation</a></div>
+            <div class="column story-value">710</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Dropbox’s Exodus from the Amazon Cloud" href="https://news.ycombinator.com/item?id=11282948" target="_blank">Dropbox’s Exodus from the Amazon Cloud</a></div>
+            <div class="column story-value">671</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="AngelList acquires Product Hunt" href="https://news.ycombinator.com/item?id=13080283" target="_blank">AngelList acquires Product Hunt</a></div>
+            <div class="column story-value">656</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Not OK, Google" href="https://news.ycombinator.com/item?id=12644604" target="_blank">Not OK, Google</a></div>
+            <div class="column story-value">651</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['nytimes.com', 'theguardian.com', 'edition.cnn.com', 'bloomberg.com', 'bbc.com', 'wsj.com', 'reuters.com', 'washingtonpost.com', 'cnbc.com', 'theatlantic.com', 'bbc.co.uk', 'theregister.com', 'npr.org', 'economist.com', 'ft.com', 'cnn.com', 'forbes.com', 'newyorker.com', 'apnews.com', 'axios.com', 'businessinsider.com', 'finance.yahoo.com', 'nbcnews.com', 'msn.com', 'thehill.com', 'independent.co.uk', 'nypost.com', 'dw.com', 'lite.cnn.com', 'slate.com', 'scmp.com', 'politico.com', 'latimes.com', 'nbcnews.com', 'fortune.com', 'news.yahoo.com', 'aljazeera.com', 'asia.nikkei.com', 'time.com', 'sfchronicle.com', 'abc.net.au', 'cbsnews.com', 'euronews.com', 'telegraph.co.uk', 'reason.com', 'cbc.ca', 'dailymail.co.uk', 'theintercept.com', 'sfgate.com', 'politico.eu', 'buzzfeednews.com']'">News [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="UK votes to leave EU" href="https://news.ycombinator.com/item?id=11966167" target="_blank">UK votes to leave EU</a></div>
+            <div class="column story-value">3125</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="Physicists Detect Gravitational Waves, Proving Einstein Right" href="https://news.ycombinator.com/item?id=11080701" target="_blank">Physicists Detect Gravitational Waves, Proving Einstein Right</a></div>
+            <div class="column story-value">2011</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="Donald Trump is the president-elect of the U.S." href="https://news.ycombinator.com/item?id=12907201" target="_blank">Donald Trump is the president-elect of the U.S.</a></div>
+            <div class="column story-value">1817</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="Panama Papers: Mossack Fonseca leak reveals elite's tax havens" href="https://news.ycombinator.com/item?id=11416928" target="_blank">Panama Papers: Mossack Fonseca leak reveals elite's tax havens</a></div>
+            <div class="column story-value">1373</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="Diffie and Hellman Win Turing Award" href="https://news.ycombinator.com/item?id=11204936" target="_blank">Diffie and Hellman Win Turing Award</a></div>
+            <div class="column story-value">1272</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="Marvin Minsky dies at 88" href="https://news.ycombinator.com/item?id=10970867" target="_blank">Marvin Minsky dies at 88</a></div>
+            <div class="column story-value">1259</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Google achieves AI 'breakthrough' by beating Go champion" href="https://news.ycombinator.com/item?id=10981679" target="_blank">Google achieves AI 'breakthrough' by beating Go champion</a></div>
+            <div class="column story-value">1207</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Massachusetts Bans Employers from Asking Applicants About Previous Pay" href="https://news.ycombinator.com/item?id=12211651" target="_blank">Massachusetts Bans Employers from Asking Applicants About Previous Pay</a></div>
+            <div class="column story-value">1195</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="LinkedIn shares drop 40%, erasing $10B of company's value" href="https://news.ycombinator.com/item?id=11042278" target="_blank">LinkedIn shares drop 40%, erasing $10B of company's value</a></div>
+            <div class="column story-value">1012</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="WhatsApp, Used by 100M Brazilians, Shut Down Nationwide Today by a Single Judge" href="https://news.ycombinator.com/item?id=11614116" target="_blank">WhatsApp, Used by 100M Brazilians, Shut Down Nationwide Today by a Single Judge</a></div>
+            <div class="column story-value">972</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['arxiv.org', 'phys.org', 'spectrum.ieee.org', 'space.com', 'ncbi.nlm.nih.gov', 'pnas.org', 'nasa.gov']'">Scientific publications [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="SpaceX lands rocket at sea second time after satellite launch" href="https://news.ycombinator.com/item?id=11642855" target="_blank">SpaceX lands rocket at sea second time after satellite launch</a></div>
+            <div class="column story-value">814</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="The Fathers of the Internet Urge Today’s Software Engineers to Reinvent the Web" href="https://news.ycombinator.com/item?id=11933427" target="_blank">The Fathers of the Internet Urge Today’s Software Engineers to Reinvent the Web</a></div>
+            <div class="column story-value">644</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="Reports Coming in of Big IBM Layoffs Underway in the U.S." href="https://news.ycombinator.com/item?id=11220800" target="_blank">Reports Coming in of Big IBM Layoffs Underway in the U.S.</a></div>
+            <div class="column story-value">333</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="Metal foam obliterates bullets" href="https://news.ycombinator.com/item?id=11460768" target="_blank">Metal foam obliterates bullets</a></div>
+            <div class="column story-value">327</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="Linux at 25: Q&A with Linus Torvalds" href="https://news.ycombinator.com/item?id=11387424" target="_blank">Linux at 25: Q&A with Linus Torvalds</a></div>
+            <div class="column story-value">304</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="There are no particles, there are only fields (2012)" href="https://news.ycombinator.com/item?id=12377393" target="_blank">There are no particles, there are only fields (2012)</a></div>
+            <div class="column story-value">294</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Friends are as genetically similar as fourth cousins" href="https://news.ycombinator.com/item?id=12076331" target="_blank">Friends are as genetically similar as fourth cousins</a></div>
+            <div class="column story-value">281</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="A Wait-Free Stack" href="https://news.ycombinator.com/item?id=12109206" target="_blank">A Wait-Free Stack</a></div>
+            <div class="column story-value">281</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="ZCash Will Be a Truly Anonymous Blockchain-Based Currency" href="https://news.ycombinator.com/item?id=12790002" target="_blank">ZCash Will Be a Truly Anonymous Blockchain-Based Currency</a></div>
+            <div class="column story-value">273</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Robot Can Do More Push-Ups Because It Sweats" href="https://news.ycombinator.com/item?id=12703769" target="_blank">Robot Can Do More Push-Ups Because It Sweats</a></div>
+            <div class="column story-value">269</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['phoronix.com', 'lwn.net', 'thenewstack.io', 'hackernoon.com', 'blog.twitter.com', 'blog.mozilla.org', 'openai.com', 'engineering.fb.com', 'stripe.com', 'krebsonsecurity.com', 'coindesk.com', 'blog.google', 'brendangregg.com', 'threatpost.com', 'stackoverflow.blog', 'github.blog', 'infoq.com', 'portswigger.net', 'betterprogramming.pub', 'ai.googleblog.com', 'blog.cloudflare.com', 'devblogs.microsoft.com', 'cloud.google.com', 'schneier.com', 'nextplatform.com', 'developer.apple.com']'">Dev Blogs [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="Stripe Atlas" href="https://news.ycombinator.com/item?id=11166417" target="_blank">Stripe Atlas</a></div>
+            <div class="column story-value">1659</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="Apple File System" href="https://news.ycombinator.com/item?id=11896785" target="_blank">Apple File System</a></div>
+            <div class="column story-value">1094</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="The Cuban CDN" href="https://news.ycombinator.com/item?id=12319063" target="_blank">The Cuban CDN</a></div>
+            <div class="column story-value">832</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="BYOT: Bring your own team" href="https://news.ycombinator.com/item?id=11567135" target="_blank">BYOT: Bring your own team</a></div>
+            <div class="column story-value">826</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="How We Make Money at Stack Overflow" href="https://news.ycombinator.com/item?id=12958957" target="_blank">How We Make Money at Stack Overflow</a></div>
+            <div class="column story-value">578</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="The Correct Way to Validate Email Addresses" href="https://news.ycombinator.com/item?id=12448844" target="_blank">The Correct Way to Validate Email Addresses</a></div>
+            <div class="column story-value">556</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Contextual Identities on the Web" href="https://news.ycombinator.com/item?id=11915656" target="_blank">Contextual Identities on the Web</a></div>
+            <div class="column story-value">555</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Firefox Focus – a free, fast and easy to use private browser for iOS" href="https://news.ycombinator.com/item?id=12977719" target="_blank">Firefox Focus – a free, fast and easy to use private browser for iOS</a></div>
+            <div class="column story-value">535</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="How it feels to learn JavaScript in 2016" href="https://news.ycombinator.com/item?id=12634577" target="_blank">How it feels to learn JavaScript in 2016</a></div>
+            <div class="column story-value">499</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Update on Multi-Process Firefox" href="https://news.ycombinator.com/item?id=13232616" target="_blank">Update on Multi-Process Firefox</a></div>
+            <div class="column story-value">498</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['macrumors.com', '9to5mac.com', 'tomshardware.com', 'hackaday.com', 'bleepingcomputer.com', 'anandtech.com', 'newatlas.com', 'appleinsider.com', 'eff.org']'">Tech blogs [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="Publicly Funded Research Should Be Publicly Available" href="https://news.ycombinator.com/item?id=11380650" target="_blank">Publicly Funded Research Should Be Publicly Available</a></div>
+            <div class="column story-value">1106</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="Save Netflix" href="https://news.ycombinator.com/item?id=11424372" target="_blank">Save Netflix</a></div>
+            <div class="column story-value">813</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="Nest Reminds Customers That Ownership Isn't What It Used to Be" href="https://news.ycombinator.com/item?id=11435245" target="_blank">Nest Reminds Customers That Ownership Isn't What It Used to Be</a></div>
+            <div class="column story-value">735</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="Save Firefox" href="https://news.ycombinator.com/item?id=11678516" target="_blank">Save Firefox</a></div>
+            <div class="column story-value">702</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="With Windows 10, Microsoft Disregards User Choice and Privacy" href="https://news.ycombinator.com/item?id=12305598" target="_blank">With Windows 10, Microsoft Disregards User Choice and Privacy</a></div>
+            <div class="column story-value">465</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="The End of Headphone Jacks, the Rise of DRM" href="https://news.ycombinator.com/item?id=12453311" target="_blank">The End of Headphone Jacks, the Rise of DRM</a></div>
+            <div class="column story-value">457</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Let's Encrypt has issued its first million certificates" href="https://news.ycombinator.com/item?id=11244386" target="_blank">Let's Encrypt has issued its first million certificates</a></div>
+            <div class="column story-value">443</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="NVIDIA Announces the GeForce GTX 1000 Series" href="https://news.ycombinator.com/item?id=11648110" target="_blank">NVIDIA Announces the GeForce GTX 1000 Series</a></div>
+            <div class="column story-value">408</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="A Digital Rumor Should Never Lead to a Police Raid" href="https://news.ycombinator.com/item?id=12558308" target="_blank">A Digital Rumor Should Never Lead to a Police Raid</a></div>
+            <div class="column story-value">351</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Cisco Must Be Held Accountable for Aiding China’s Human Rights Abuses" href="https://news.ycombinator.com/item?id=10890907" target="_blank">Cisco Must Be Held Accountable for Aiding China’s Human Rights Abuses</a></div>
+            <div class="column story-value">331</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['aws.amazon.com', 'amazon.com', 'microsoft.com', 'apple.com']'">FAANG+ [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="A Message to Our Customers" href="https://news.ycombinator.com/item?id=11116274" target="_blank">A Message to Our Customers</a></div>
+            <div class="column story-value">5771</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="Amazon Go" href="https://news.ycombinator.com/item?id=13105689" target="_blank">Amazon Go</a></div>
+            <div class="column story-value">1247</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="MacBook Pro" href="https://news.ycombinator.com/item?id=12807826" target="_blank">MacBook Pro</a></div>
+            <div class="column story-value">861</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="iPhone 7" href="https://news.ycombinator.com/item?id=12445994" target="_blank">iPhone 7</a></div>
+            <div class="column story-value">756</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="Developer Preview – EC2 Instances with Programmable Hardware" href="https://news.ycombinator.com/item?id=13072432" target="_blank">Developer Preview – EC2 Instances with Programmable Hardware</a></div>
+            <div class="column story-value">643</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="iPhone SE" href="https://news.ycombinator.com/item?id=11330226" target="_blank">iPhone SE</a></div>
+            <div class="column story-value">567</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Answers to your questions about Apple and security" href="https://news.ycombinator.com/item?id=11150107" target="_blank">Answers to your questions about Apple and security</a></div>
+            <div class="column story-value">545</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Microsoft Pix" href="https://news.ycombinator.com/item?id=12483047" target="_blank">Microsoft Pix</a></div>
+            <div class="column story-value">514</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="Amazon Vehicles" href="https://news.ycombinator.com/item?id=12361178" target="_blank">Amazon Vehicles</a></div>
+            <div class="column story-value">472</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Amazon Lumberyard: free AAA game engine with Oculus and AWS integration" href="https://news.ycombinator.com/item?id=11063963" target="_blank">Amazon Lumberyard: free AAA game engine with Oculus and AWS integration</a></div>
+            <div class="column story-value">441</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['thedrive.com', 'atlasobscura.com', 'electrek.co', 'aeon.co', 'lesswrong.com', 'hbr.org', 'torrentfreak.com', 'nationalgeographic.com', 'docs.google.com', 'web.archive.org', 'stratechery.com', 'archive.org']'">Misc and Hobbies [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="The price of solar power just fell 50% in 16 months" href="https://news.ycombinator.com/item?id=11617988" target="_blank">The price of solar power just fell 50% in 16 months</a></div>
+            <div class="column story-value">756</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="What if jobs are not the solution but the problem?" href="https://news.ycombinator.com/item?id=13037810" target="_blank">What if jobs are not the solution but the problem?</a></div>
+            <div class="column story-value">680</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="Why not just a simple spreadsheet of salaries?" href="https://news.ycombinator.com/item?id=11331223" target="_blank">Why not just a simple spreadsheet of salaries?</a></div>
+            <div class="column story-value">663</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="WoSign and StartCom: Mozilla’s proposed conclusion" href="https://news.ycombinator.com/item?id=12582534" target="_blank">WoSign and StartCom: Mozilla’s proposed conclusion</a></div>
+            <div class="column story-value">608</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="What I learned as a hired consultant to autodidact physicists" href="https://news.ycombinator.com/item?id=12268362" target="_blank">What I learned as a hired consultant to autodidact physicists</a></div>
+            <div class="column story-value">563</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="What Great Listeners Actually Do" href="https://news.ycombinator.com/item?id=12302128" target="_blank">What Great Listeners Actually Do</a></div>
+            <div class="column story-value">521</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Coursera courses preserved by Archive Team" href="https://news.ycombinator.com/item?id=12062116" target="_blank">Coursera courses preserved by Archive Team</a></div>
+            <div class="column story-value">513</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="VPN Comparison Chart" href="https://news.ycombinator.com/item?id=11294064" target="_blank">VPN Comparison Chart</a></div>
+            <div class="column story-value">510</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="Lake Nyos suffocated over 1,700 people in one night" href="https://news.ycombinator.com/item?id=12274749" target="_blank">Lake Nyos suffocated over 1,700 people in one night</a></div>
+            <div class="column story-value">472</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="The Malware Museum" href="https://news.ycombinator.com/item?id=11040362" target="_blank">The Malware Museum</a></div>
+            <div class="column story-value">472</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['nature.com', 'livescience.com', 'techxplore.com', 'interestingengineering.com', 'science.org', 'medicalxpress.com', 'quantamagazine.org', 'scientificamerican.com', 'theconversation.com', 'nautil.us', 'sciencealert.com', 'smithsonianmag.com', 'news.mit.edu', 'sciencedaily.com', 'sciencedirect.com', 'scitechdaily.com', 'newscientist.com', 'sciencemag.org', 'eurekalert.org', 'bmj.com']'">Science News [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="Who's downloading pirated papers? Everyone" href="https://news.ycombinator.com/item?id=11593532" target="_blank">Who's downloading pirated papers? Everyone</a></div>
+            <div class="column story-value">1085</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="We Should Not Accept Scientific Results That Have Not Been Repeated" href="https://news.ycombinator.com/item?id=12185845" target="_blank">We Should Not Accept Scientific Results That Have Not Been Repeated</a></div>
+            <div class="column story-value">910</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="A previously unnoticed property of prime numbers" href="https://news.ycombinator.com/item?id=11282480" target="_blank">A previously unnoticed property of prime numbers</a></div>
+            <div class="column story-value">794</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="The Fight for the “Right to Repair”" href="https://news.ycombinator.com/item?id=12088631" target="_blank">The Fight for the “Right to Repair”</a></div>
+            <div class="column story-value">704</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="Israel Proves the Desalination Era Is Here" href="https://news.ycombinator.com/item?id=12191089" target="_blank">Israel Proves the Desalination Era Is Here</a></div>
+            <div class="column story-value">586</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="In Newly Created Life-Form, a Major Mystery" href="https://news.ycombinator.com/item?id=11953935" target="_blank">In Newly Created Life-Form, a Major Mystery</a></div>
+            <div class="column story-value">550</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Farm grows vegetables in a desert using sun and seawater" href="https://news.ycombinator.com/item?id=12657522" target="_blank">Farm grows vegetables in a desert using sun and seawater</a></div>
+            <div class="column story-value">543</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Lessons from a 45-year Study of Super-Smart Children" href="https://news.ycombinator.com/item?id=12443629" target="_blank">Lessons from a 45-year Study of Super-Smart Children</a></div>
+            <div class="column story-value">490</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="Antarctic CO2 Hit 400 PPM for First Time in 4M Years" href="https://news.ycombinator.com/item?id=11918741" target="_blank">Antarctic CO2 Hit 400 PPM for First Time in 4M Years</a></div>
+            <div class="column story-value">462</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="New Life Found That Lives Off Electricity" href="https://news.ycombinator.com/item?id=11953882" target="_blank">New Life Found That Lives Off Electricity</a></div>
+            <div class="column story-value">422</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['old.reddit.com', 'reddit.com', 'twitter.com', 'facebook.com', 'linkedin.com', 'youtube.com']'">Social [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="Jury in Oracle v. Google finds in Google's favour" href="https://news.ycombinator.com/item?id=11781053" target="_blank">Jury in Oracle v. Google finds in Google's favour</a></div>
+            <div class="column story-value">1832</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="Being sued, in East Texas, for using the Google Play Store [video]" href="https://news.ycombinator.com/item?id=11862476" target="_blank">Being sued, in East Texas, for using the Google Play Store [video]</a></div>
+            <div class="column story-value">1565</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="I'm choosing euthanasia etd 1pm. I have no last words." href="https://news.ycombinator.com/item?id=12634590" target="_blank">I'm choosing euthanasia etd 1pm. I have no last words.</a></div>
+            <div class="column story-value">1361</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="Building Jarvis" href="https://news.ycombinator.com/item?id=13212976" target="_blank">Building Jarvis</a></div>
+            <div class="column story-value">1164</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="Sega Saturn CD Cracked after 20 Years" href="https://news.ycombinator.com/item?id=12074096" target="_blank">Sega Saturn CD Cracked after 20 Years</a></div>
+            <div class="column story-value">1126</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="AlphaGo beats the world champion Lee Sedol in first of five matches" href="https://news.ycombinator.com/item?id=11251463" target="_blank">AlphaGo beats the world champion Lee Sedol in first of five matches</a></div>
+            <div class="column story-value">1085</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Linux can’t be installed on a recent Lenovo laptop" href="https://news.ycombinator.com/item?id=12545878" target="_blank">Linux can’t be installed on a recent Lenovo laptop</a></div>
+            <div class="column story-value">1054</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="You Suck at Excel with Joel Spolsky (2015) [video]" href="https://news.ycombinator.com/item?id=12448545" target="_blank">You Suck at Excel with Joel Spolsky (2015) [video]</a></div>
+            <div class="column story-value">957</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="Did I just win?" href="https://news.ycombinator.com/item?id=11691798" target="_blank">Did I just win?</a></div>
+            <div class="column story-value">950</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Reddit removed NSL canary from 2015 Transparency Report" href="https://news.ycombinator.com/item?id=11400112" target="_blank">Reddit removed NSL canary from 2015 Transparency Report</a></div>
+            <div class="column story-value">941</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['github.com', 'gist.github.com']'">Github repos and gists [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="Dear GitHub" href="https://news.ycombinator.com/item?id=10904671" target="_blank">Dear GitHub</a></div>
+            <div class="column story-value">1678</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="Introducing unlimited private repositories" href="https://news.ycombinator.com/item?id=11673103" target="_blank">Introducing unlimited private repositories</a></div>
+            <div class="column story-value">1576</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="Open Guide to Amazon Web Services" href="https://news.ycombinator.com/item?id=12686763" target="_blank">Open Guide to Amazon Web Services</a></div>
+            <div class="column story-value">1362</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="Announcing new tools, forums, and features" href="https://news.ycombinator.com/item?id=12499642" target="_blank">Announcing new tools, forums, and features</a></div>
+            <div class="column story-value">1142</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="A practical security guide for web developers" href="https://news.ycombinator.com/item?id=12140477" target="_blank">A practical security guide for web developers</a></div>
+            <div class="column story-value">894</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="Spaceship Generator" href="https://news.ycombinator.com/item?id=11929493" target="_blank">Spaceship Generator</a></div>
+            <div class="column story-value">850</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="CocoaPods downloads max out five GitHub server CPUs" href="https://news.ycombinator.com/item?id=11245652" target="_blank">CocoaPods downloads max out five GitHub server CPUs</a></div>
+            <div class="column story-value">826</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="GitHub responds to Dear GitHub letter" href="https://news.ycombinator.com/item?id=11087191" target="_blank">GitHub responds to Dear GitHub letter</a></div>
+            <div class="column story-value">763</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="Add Reactions to Pull Requests, Issues, and Comments" href="https://news.ycombinator.com/item?id=11262736" target="_blank">Add Reactions to Pull Requests, Issues, and Comments</a></div>
+            <div class="column story-value">736</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Pastejacking" href="https://news.ycombinator.com/item?id=11757973" target="_blank">Pastejacking</a></div>
+            <div class="column story-value">722</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['medium.com', 'world.hey.com', 'danluu.com', 'jvns.ca', 'paulgraham.com']'">Blogs [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="We only hire the trendiest" href="https://news.ycombinator.com/item?id=11326940" target="_blank">We only hire the trendiest</a></div>
+            <div class="column story-value">1615</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="How Technology Hijacks People’s Minds" href="https://news.ycombinator.com/item?id=11737232" target="_blank">How Technology Hijacks People’s Minds</a></div>
+            <div class="column story-value">1612</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="I've Just Liberated My Modules" href="https://news.ycombinator.com/item?id=11340510" target="_blank">I've Just Liberated My Modules</a></div>
+            <div class="column story-value">1573</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="Amazon's customer service backdoor" href="https://news.ycombinator.com/item?id=10963568" target="_blank">Amazon's customer service backdoor</a></div>
+            <div class="column story-value">1447</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="Scammed By A Silicon Valley Startup" href="https://news.ycombinator.com/item?id=12379518" target="_blank">Scammed By A Silicon Valley Startup</a></div>
+            <div class="column story-value">1311</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="Why you should never use Upwork" href="https://news.ycombinator.com/item?id=12773282" target="_blank">Why you should never use Upwork</a></div>
+            <div class="column story-value">1175</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Programming books you might want to consider reading" href="https://news.ycombinator.com/item?id=12718102" target="_blank">Programming books you might want to consider reading</a></div>
+            <div class="column story-value">1019</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Life is Short" href="https://news.ycombinator.com/item?id=10917446" target="_blank">Life is Short</a></div>
+            <div class="column story-value">970</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="The resolution of the Bitcoin experiment" href="https://news.ycombinator.com/item?id=10905118" target="_blank">The resolution of the Bitcoin experiment</a></div>
+            <div class="column story-value">961</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Mental Models I Find Repeatedly Useful" href="https://news.ycombinator.com/item?id=12040707" target="_blank">Mental Models I Find Repeatedly Useful</a></div>
+            <div class="column story-value">929</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts from the following websites: '['stackoverflow.com']'">Stackoverflow [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="How are zlib, gzip and Zip related? (2013)" href="https://news.ycombinator.com/item?id=11922453" target="_blank">How are zlib, gzip and Zip related? (2013)</a></div>
+            <div class="column story-value">652</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="Compiling an application for use in highly radio-active environments" href="https://news.ycombinator.com/item?id=11579428" target="_blank">Compiling an application for use in highly radio-active environments</a></div>
+            <div class="column story-value">507</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="Why is printing “B” dramatically slower than printing “#”? (2014)" href="https://news.ycombinator.com/item?id=12452116" target="_blank">Why is printing “B” dramatically slower than printing “#”? (2014)</a></div>
+            <div class="column story-value">324</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="2016 Stack Overflow Developer Survey Results" href="https://news.ycombinator.com/item?id=11303511" target="_blank">2016 Stack Overflow Developer Survey Results</a></div>
+            <div class="column story-value">318</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="What is “:-!!” in C code?" href="https://news.ycombinator.com/item?id=13003057" target="_blank">What is “:-!!” in C code?</a></div>
+            <div class="column story-value">242</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="Deoptimizing a C++ program" href="https://news.ycombinator.com/item?id=11749756" target="_blank">Deoptimizing a C++ program</a></div>
+            <div class="column story-value">151</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Is it possible to apply CSS to half of a character?" href="https://news.ycombinator.com/item?id=12043045" target="_blank">Is it possible to apply CSS to half of a character?</a></div>
+            <div class="column story-value">112</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Huge no. of files for Angular 2" href="https://news.ycombinator.com/item?id=12209028" target="_blank">Huge no. of files for Angular 2</a></div>
+            <div class="column story-value">110</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="SVG changes color when rotated in Safari 10" href="https://news.ycombinator.com/item?id=12556433" target="_blank">SVG changes color when rotated in Safari 10</a></div>
+            <div class="column story-value">102</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Elixir vs. Erlang, is Elixir safe bet for my time investment?" href="https://news.ycombinator.com/item?id=11952631" target="_blank">Elixir vs. Erlang, is Elixir safe bet for my time investment?</a></div>
+            <div class="column story-value">91</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts matching the following domain: 'wikipedia.org'">Wikipedia [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="Lenin was a mushroom" href="https://news.ycombinator.com/item?id=11952927" target="_blank">Lenin was a mushroom</a></div>
+            <div class="column story-value">574</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="Peter Naur has died" href="https://news.ycombinator.com/item?id=10832624" target="_blank">Peter Naur has died</a></div>
+            <div class="column story-value">570</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="Wikipedia Turns 15" href="https://news.ycombinator.com/item?id=10907868" target="_blank">Wikipedia Turns 15</a></div>
+            <div class="column story-value">441</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="Gimli Glider" href="https://news.ycombinator.com/item?id=13207825" target="_blank">Gimli Glider</a></div>
+            <div class="column story-value">385</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="52-hertz whale" href="https://news.ycombinator.com/item?id=11185764" target="_blank">52-hertz whale</a></div>
+            <div class="column story-value">299</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="The pirate game" href="https://news.ycombinator.com/item?id=10887194" target="_blank">The pirate game</a></div>
+            <div class="column story-value">298</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Wireworld" href="https://news.ycombinator.com/item?id=12047338" target="_blank">Wireworld</a></div>
+            <div class="column story-value">290</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Massachusetts Right to Repair Initiative" href="https://news.ycombinator.com/item?id=11423833" target="_blank">Massachusetts Right to Repair Initiative</a></div>
+            <div class="column story-value">264</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="Dyatlov Pass Incident" href="https://news.ycombinator.com/item?id=11828346" target="_blank">Dyatlov Pass Incident</a></div>
+            <div class="column story-value">259</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Zenzizenzizenzic" href="https://news.ycombinator.com/item?id=12139652" target="_blank">Zenzizenzizenzic</a></div>
+            <div class="column story-value">258</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
+            <h3 title="Posts matching the following domain: 'substack.com'">Substack [?]</h3>
+        </div>
+    </div>
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Top HN Posts</strong> by <a href="https://twitter.com/santiagobasulto">Santiago Basulto</a>. See <a href="https://github.com/hn-summary/hn-summary.github.io">source on Github</a>.
+          </p>
+        </div>
+      </footer>
+</body>
+
+</html>
