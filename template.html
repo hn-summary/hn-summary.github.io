@@ -19,19 +19,19 @@
     </section>
     <section class="section">
         <div class="container">
-            <div class="columns is-mobile is-multiline date-selector">
+            <div class="columns is-mobile date-selector">
                 {% for year in ALL_YEARS %}
-                    <div class="column has-text-centered year"><a href="/{{year}}.html" {% if year == selected_year %}class="is-active"{% endif %}>{{ year }}</a></div>
+                    <div class="column has-text-centered year"><a href="/{{year}}.html" {% if year == selected_year %} id="selected-year" class="is-active"{% endif %}>{{ year }}</a></div>
                 {% endfor %}
             </div>
-            <div class="columns is-mobile is-multiline date-selector">
+            <div class="columns is-mobile date-selector">
                 {% for month in ALL_MONTHS %}
-                    <div class="column has-text-centered month"><a href="/{{selected_year}}-{{month.numeric}}.html" {% if selected_month and month.numeric == selected_month %}class="is-active"{% endif %}>{{ month.name }}</a></div>
+                    <div class="column has-text-centered month"><a href="/{{selected_year}}-{{month.numeric}}.html" {% if selected_month and month.numeric == selected_month %} id="selected-month" class="is-active"{% endif %}>{{ month.name }}</a></div>
                 {% endfor %}
             </div>
-            <div class="columns is-mobile is-multiline date-selector week-selector">
+            <div class="columns is-mobile date-selector week-selector">
                 {% for week in ALL_WEEKS %}
-                    <div class="column week"><a href="/{{selected_year}}-W{{week}}.html" {% if selected_week and week == selected_week %} class="is-active" {% endif %}> W{{week}}</a></div>
+                    <div class="column week"><a href="/{{selected_year}}-W{{week}}.html" {% if selected_week and week == selected_week %}  id="selected-week" class="is-active" {% endif %}> W{{week}}</a></div>
                 {% endfor %}
             </div>
         </div>
@@ -128,6 +128,7 @@
           </p>
         </div>
       </footer>
+      <script src="/main.js" defer></script>
 </body>
 
 </html>
