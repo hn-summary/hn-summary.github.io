@@ -4,185 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/styles.css">
 
     <title>Hacker News Top Charts - 2006-04-01 to 2006-05-01</title>
     <meta name="description" content="Top Hacker News posts from April 01, 2006 to May 01, 2006">
-    <style>
-        * {
-            font-family: monospace;
-            font-size: 1em;
-            /* border: 0;
-            margin: 0;
-            padding: 0; */
-            list-style: none;
-            font-weight: normal;
-            color: #000;
-        }
-
-        strong,
-        b {
-            font-weight: bold
-        }
-
-        em,
-        i {
-            font-style: italic
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: #900
-        }
-
-        h1 code,
-        h2 code,
-        h3 code,
-        h4 code,
-        h5 code,
-        h6 code {
-            background: #fff
-        }
-
-        h1::before {
-            content: "# ";
-            color: #09a
-        }
-
-        h2::before {
-            content: "## ";
-            color: #09a
-        }
-
-        h3::before {
-            content: "### ";
-            color: #09a
-        }
-
-        h4::before {
-            content: "#### ";
-            color: #09a
-        }
-
-        h5::before {
-            content: "##### ";
-            color: #09a
-        }
-
-        h6::before {
-            content: "###### ";
-            color: #09a
-        }
-        a:hover{ color:#f00; }
-
-        .header {
-            padding: 20px 0px 20px 0px;
-            text-align: center;
-        }
-
-        .section {
-            padding: 1rem 1rem;
-        }
-        .section-charts{
-            padding-top: 5rem;
-        }
-        .section-title{
-            padding-bottom: 1rem;
-        }
-
-        .column.year,
-        .column.month,
-        .column.week {
-            text-align: center;
-        }
-
-        .year, .month, .week {
-            font-size: 1.1em;
-        }
-        .week{
-            font-size: .8em;
-        }
-
-        .top-title {
-            text-align: center;
-        }
-        .date-selector{
-            border-bottom: 1px solid #8e8e8e;
-        }
-        .week-selector{
-            max-height: 150px;
-            overflow: scroll;
-            border:none;
-        }
-        .is-active {
-            /* text-decoration: underline;
-            text-decoration-thickness: 3px;
-            text-decoration-color: red; */
-            text-decoration: none;
-            position: relative;
-            font-weight: bold;
-
-        }
-        .is-active:after {
-    content: '';
-
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    color: #fe93c8;
-
-    border-width: 0 0 3px;
-    border-style: solid;
-}
-.rank-no{
-    padding-right: 0px;
-    padding-left: 5px;
-    color: #6a6a6a;
-}
-.rank-no::after{
-    content: ".";
-    color: #fb0;
-    font-weight: bold;
-}
-.story-title{
-    padding-left: 0px;
-    padding-right: 0px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-white-space: nowrap;
-
-}
-.story-value{
-    padding-right: 0px;
-    position: relative;
-}
-.story-value::after{
-    content: "pt.";
-    position: absolute;
-    top: 5px;
-    font-size: .5em;
-    color: #09a;
-    font-weight: bold;
-}
-
-h1{
-    font-size: 1.5em;
-}
-h2{
-    font-size: 1.3em;
-}
-h3{
-    font-size: 1.1em;
-}
-    </style>
 </head>
 
 <body>
-    <section class="section heaader">
+    <section class="section floating-options">
+        <a id="dark-mode-toggle">Go dark</a>
+    </section>
+    <section class="section header">
         <div class="container" style="text-align: center;">
             <h1>Top HN Stories</h1>
             <p>[from <strong>Apr 01, 2006</strong> to <strong>May 01, 2006</strong>)</p>
@@ -190,9 +22,9 @@ h3{
     </section>
     <section class="section">
         <div class="container">
-            <div class="columns is-mobile is-multiline date-selector">
+            <div class="columns is-mobile date-selector">
                 
-                    <div class="column has-text-centered year"><a href="/2006.html" class="is-active">2006</a></div>
+                    <div class="column has-text-centered year"><a href="/2006.html"  id="selected-year" class="is-active">2006</a></div>
                 
                     <div class="column has-text-centered year"><a href="/2007.html" >2007</a></div>
                 
@@ -224,139 +56,397 @@ h3{
                 
                     <div class="column has-text-centered year"><a href="/2021.html" >2021</a></div>
                 
-            </div>
-            <div class="columns is-mobile is-multiline date-selector">
-                
-                    <div class="column has-text-centered month"><a href="/2006-01.html" >Jan</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-02.html" >Feb</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-03.html" >Mar</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-04.html" class="is-active">Apr</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-05.html" >May</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-06.html" >Jun</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-07.html" >Jul</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-08.html" >Aug</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-09.html" >Sep</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-10.html" >Oct</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-11.html" >Nov</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2006-12.html" >Dec</a></div>
+                    <div class="column has-text-centered year"><a href="/2022.html" >2022</a></div>
                 
             </div>
-            <div class="columns is-mobile is-multiline date-selector week-selector">
+            <div class="columns is-mobile date-selector">
                 
-                    <div class="column week"><a href="/2006-W1.html" > W1</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-1.html" >Jan</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W2.html" > W2</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-2.html" >Feb</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W3.html" > W3</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-3.html" >Mar</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W4.html" > W4</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-4.html"  id="selected-month" class="is-active">Apr</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W5.html" > W5</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-5.html" >May</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W6.html" > W6</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-6.html" >Jun</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W7.html" > W7</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-7.html" >Jul</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W8.html" > W8</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-8.html" >Aug</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W9.html" > W9</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-9.html" >Sep</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W10.html" > W10</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-10.html" >Oct</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W11.html" > W11</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-11.html" >Nov</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W12.html" > W12</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2006-12.html" >Dec</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W13.html" > W13</a></div>
+            </div>
+            <div class="columns is-mobile date-selector week-selector">
                 
-                    <div class="column week"><a href="/2006-W14.html" > W14</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W1.html" > W1</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W15.html" > W15</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W2.html" > W2</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W16.html" > W16</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W3.html" > W3</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W17.html" > W17</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W4.html" > W4</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W18.html" > W18</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W5.html" > W5</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W19.html" > W19</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W6.html" > W6</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W20.html" > W20</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W7.html" > W7</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W21.html" > W21</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W8.html" > W8</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W22.html" > W22</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W9.html" > W9</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W23.html" > W23</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W10.html" > W10</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W24.html" > W24</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W11.html" > W11</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W25.html" > W25</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W12.html" > W12</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W26.html" > W26</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W13.html" > W13</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W27.html" > W27</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W14.html" > W14</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W28.html" > W28</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W15.html" > W15</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W29.html" > W29</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W16.html" > W16</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W30.html" > W30</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W17.html" > W17</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W31.html" > W31</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W18.html" > W18</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W32.html" > W32</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W19.html" > W19</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W33.html" > W33</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W20.html" > W20</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W34.html" > W34</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W21.html" > W21</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W35.html" > W35</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W22.html" > W22</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W36.html" > W36</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W23.html" > W23</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W37.html" > W37</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W24.html" > W24</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W38.html" > W38</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W25.html" > W25</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W39.html" > W39</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W26.html" > W26</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W40.html" > W40</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W27.html" > W27</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W41.html" > W41</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W28.html" > W28</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W42.html" > W42</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W29.html" > W29</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W43.html" > W43</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W30.html" > W30</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W44.html" > W44</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W31.html" > W31</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W45.html" > W45</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W32.html" > W32</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W46.html" > W46</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W33.html" > W33</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W47.html" > W47</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W34.html" > W34</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W48.html" > W48</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W35.html" > W35</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W49.html" > W49</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W36.html" > W36</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W50.html" > W50</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W37.html" > W37</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W51.html" > W51</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W38.html" > W38</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2006-W52.html" > W52</a></div>
+                    <div class="column week">
+                        
+                            <a href="2006-W39.html" > W39</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W40.html" > W40</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W41.html" > W41</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W42.html" > W42</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W43.html" > W43</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W44.html" > W44</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W45.html" > W45</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W46.html" > W46</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W47.html" > W47</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W48.html" > W48</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W49.html" > W49</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W50.html" > W50</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W51.html" > W51</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2006-W52.html" > W52</a>
+                        
+                    </div>
                 
             </div>
         </div>
@@ -410,7 +500,7 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts from the following websites: '['techcrunch.com', 'venturebeat.com', 'gizmodo.com', 'arstechnica.com', 'theverge.com', 'wired.com', 'vice.com', 'zdnet.com', 'engadget.com', 'technologyreview.com', 'cnet.com', 'vox.com', 'fastcompany.com', 'protocol.com', 'wired.co.uk', 'therecord.media', 'qz.com', 'techradar.com', 'techspot.com', 'pcgamer.com', 'thenextweb.com', 'restofworld.org']'">Tech news [?]</h3>
+            <h3 title="Posts from the following websites: '['techcrunch.com', 'venturebeat.com', 'gizmodo.com', 'arstechnica.com', 'theverge.com', 'wired.com', 'vice.com', 'zdnet.com', 'engadget.com', 'technologyreview.com', 'cnet.com', 'vox.com', 'fastcompany.com', 'protocol.com', 'wired.co.uk', 'therecord.media', 'qz.com', 'techradar.com', 'techspot.com', 'pcgamer.com', 'thenextweb.com', 'restofworld.org', 'bleepingcomputer.com']'">Tech news [?]</h3>
         </div>
     </div>
     
@@ -446,7 +536,7 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts from the following websites: '['macrumors.com', '9to5mac.com', 'tomshardware.com', 'hackaday.com', 'bleepingcomputer.com', 'anandtech.com', 'newatlas.com', 'appleinsider.com', 'eff.org']'">Tech blogs [?]</h3>
+            <h3 title="Posts from the following websites: '['macrumors.com', '9to5mac.com', 'tomshardware.com', 'hackaday.com', 'anandtech.com', 'newatlas.com', 'appleinsider.com', 'eff.org']'">Tech blogs [?]</h3>
         </div>
     </div>
     
@@ -500,6 +590,15 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
+            <h3 title="Posts matching the following domain: 'wikipedia.org'">Wikipedia [?]</h3>
+        </div>
+    </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
             <h3 title="Posts from the following websites: '['medium.com', 'world.hey.com', 'danluu.com', 'jvns.ca', 'paulgraham.com']'">Blogs [?]</h3>
         </div>
     </div>
@@ -510,15 +609,6 @@ h3{
     <div class="columns has-text-centered">
         <div class="column">
             <h3 title="Posts from the following websites: '['stackoverflow.com']'">Stackoverflow [?]</h3>
-        </div>
-    </div>
-    
-</div>
-
-<div class="column is-one-third-widescreen is-half-desktop">
-    <div class="columns has-text-centered">
-        <div class="column">
-            <h3 title="Posts matching the following domain: 'wikipedia.org'">Wikipedia [?]</h3>
         </div>
     </div>
     
@@ -543,6 +633,7 @@ h3{
           </p>
         </div>
       </footer>
+      <script src="/main.js" defer></script>
 </body>
 
 </html>

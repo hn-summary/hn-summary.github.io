@@ -4,185 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/styles.css">
 
     <title>Hacker News Top Charts - 2020-07-01 to 2020-08-01</title>
     <meta name="description" content="Top Hacker News posts from July 01, 2020 to August 01, 2020">
-    <style>
-        * {
-            font-family: monospace;
-            font-size: 1em;
-            /* border: 0;
-            margin: 0;
-            padding: 0; */
-            list-style: none;
-            font-weight: normal;
-            color: #000;
-        }
-
-        strong,
-        b {
-            font-weight: bold
-        }
-
-        em,
-        i {
-            font-style: italic
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: #900
-        }
-
-        h1 code,
-        h2 code,
-        h3 code,
-        h4 code,
-        h5 code,
-        h6 code {
-            background: #fff
-        }
-
-        h1::before {
-            content: "# ";
-            color: #09a
-        }
-
-        h2::before {
-            content: "## ";
-            color: #09a
-        }
-
-        h3::before {
-            content: "### ";
-            color: #09a
-        }
-
-        h4::before {
-            content: "#### ";
-            color: #09a
-        }
-
-        h5::before {
-            content: "##### ";
-            color: #09a
-        }
-
-        h6::before {
-            content: "###### ";
-            color: #09a
-        }
-        a:hover{ color:#f00; }
-
-        .header {
-            padding: 20px 0px 20px 0px;
-            text-align: center;
-        }
-
-        .section {
-            padding: 1rem 1rem;
-        }
-        .section-charts{
-            padding-top: 5rem;
-        }
-        .section-title{
-            padding-bottom: 1rem;
-        }
-
-        .column.year,
-        .column.month,
-        .column.week {
-            text-align: center;
-        }
-
-        .year, .month, .week {
-            font-size: 1.1em;
-        }
-        .week{
-            font-size: .8em;
-        }
-
-        .top-title {
-            text-align: center;
-        }
-        .date-selector{
-            border-bottom: 1px solid #8e8e8e;
-        }
-        .week-selector{
-            max-height: 150px;
-            overflow: scroll;
-            border:none;
-        }
-        .is-active {
-            /* text-decoration: underline;
-            text-decoration-thickness: 3px;
-            text-decoration-color: red; */
-            text-decoration: none;
-            position: relative;
-            font-weight: bold;
-
-        }
-        .is-active:after {
-    content: '';
-
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    color: #fe93c8;
-
-    border-width: 0 0 3px;
-    border-style: solid;
-}
-.rank-no{
-    padding-right: 0px;
-    padding-left: 5px;
-    color: #6a6a6a;
-}
-.rank-no::after{
-    content: ".";
-    color: #fb0;
-    font-weight: bold;
-}
-.story-title{
-    padding-left: 0px;
-    padding-right: 0px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-white-space: nowrap;
-
-}
-.story-value{
-    padding-right: 0px;
-    position: relative;
-}
-.story-value::after{
-    content: "pt.";
-    position: absolute;
-    top: 5px;
-    font-size: .5em;
-    color: #09a;
-    font-weight: bold;
-}
-
-h1{
-    font-size: 1.5em;
-}
-h2{
-    font-size: 1.3em;
-}
-h3{
-    font-size: 1.1em;
-}
-    </style>
 </head>
 
 <body>
-    <section class="section heaader">
+    <section class="section floating-options">
+        <a id="dark-mode-toggle">Go dark</a>
+    </section>
+    <section class="section header">
         <div class="container" style="text-align: center;">
             <h1>Top HN Stories</h1>
             <p>[from <strong>Jul 01, 2020</strong> to <strong>Aug 01, 2020</strong>)</p>
@@ -190,7 +22,7 @@ h3{
     </section>
     <section class="section">
         <div class="container">
-            <div class="columns is-mobile is-multiline date-selector">
+            <div class="columns is-mobile date-selector">
                 
                     <div class="column has-text-centered year"><a href="/2006.html" >2006</a></div>
                 
@@ -220,143 +52,401 @@ h3{
                 
                     <div class="column has-text-centered year"><a href="/2019.html" >2019</a></div>
                 
-                    <div class="column has-text-centered year"><a href="/2020.html" class="is-active">2020</a></div>
+                    <div class="column has-text-centered year"><a href="/2020.html"  id="selected-year" class="is-active">2020</a></div>
                 
                     <div class="column has-text-centered year"><a href="/2021.html" >2021</a></div>
                 
-            </div>
-            <div class="columns is-mobile is-multiline date-selector">
-                
-                    <div class="column has-text-centered month"><a href="/2020-01.html" >Jan</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-02.html" >Feb</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-03.html" >Mar</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-04.html" >Apr</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-05.html" >May</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-06.html" >Jun</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-07.html" class="is-active">Jul</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-08.html" >Aug</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-09.html" >Sep</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-10.html" >Oct</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-11.html" >Nov</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2020-12.html" >Dec</a></div>
+                    <div class="column has-text-centered year"><a href="/2022.html" >2022</a></div>
                 
             </div>
-            <div class="columns is-mobile is-multiline date-selector week-selector">
+            <div class="columns is-mobile date-selector">
                 
-                    <div class="column week"><a href="/2020-W1.html" > W1</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-1.html" >Jan</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W2.html" > W2</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-2.html" >Feb</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W3.html" > W3</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-3.html" >Mar</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W4.html" > W4</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-4.html" >Apr</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W5.html" > W5</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-5.html" >May</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W6.html" > W6</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-6.html" >Jun</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W7.html" > W7</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-7.html"  id="selected-month" class="is-active">Jul</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W8.html" > W8</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-8.html" >Aug</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W9.html" > W9</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-9.html" >Sep</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W10.html" > W10</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-10.html" >Oct</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W11.html" > W11</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-11.html" >Nov</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W12.html" > W12</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2020-12.html" >Dec</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W13.html" > W13</a></div>
+            </div>
+            <div class="columns is-mobile date-selector week-selector">
                 
-                    <div class="column week"><a href="/2020-W14.html" > W14</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W1.html" > W1</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W15.html" > W15</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W2.html" > W2</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W16.html" > W16</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W3.html" > W3</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W17.html" > W17</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W4.html" > W4</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W18.html" > W18</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W5.html" > W5</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W19.html" > W19</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W6.html" > W6</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W20.html" > W20</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W7.html" > W7</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W21.html" > W21</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W8.html" > W8</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W22.html" > W22</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W9.html" > W9</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W23.html" > W23</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W10.html" > W10</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W24.html" > W24</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W11.html" > W11</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W25.html" > W25</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W12.html" > W12</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W26.html" > W26</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W13.html" > W13</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W27.html" > W27</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W14.html" > W14</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W28.html" > W28</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W15.html" > W15</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W29.html" > W29</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W16.html" > W16</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W30.html" > W30</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W17.html" > W17</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W31.html" > W31</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W18.html" > W18</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W32.html" > W32</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W19.html" > W19</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W33.html" > W33</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W20.html" > W20</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W34.html" > W34</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W21.html" > W21</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W35.html" > W35</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W22.html" > W22</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W36.html" > W36</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W23.html" > W23</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W37.html" > W37</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W24.html" > W24</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W38.html" > W38</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W25.html" > W25</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W39.html" > W39</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W26.html" > W26</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W40.html" > W40</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W27.html" > W27</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W41.html" > W41</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W28.html" > W28</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W42.html" > W42</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W29.html" > W29</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W43.html" > W43</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W30.html" > W30</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W44.html" > W44</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W31.html" > W31</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W45.html" > W45</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W32.html" > W32</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W46.html" > W46</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W33.html" > W33</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W47.html" > W47</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W34.html" > W34</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W48.html" > W48</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W35.html" > W35</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W49.html" > W49</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W36.html" > W36</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W50.html" > W50</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W37.html" > W37</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W51.html" > W51</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W38.html" > W38</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2020-W52.html" > W52</a></div>
+                    <div class="column week">
+                        
+                            <a href="2020-W39.html" > W39</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W40.html" > W40</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W41.html" > W41</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W42.html" > W42</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W43.html" > W43</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W44.html" > W44</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W45.html" > W45</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W46.html" > W46</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W47.html" > W47</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W48.html" > W48</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W49.html" > W49</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W50.html" > W50</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W51.html" > W51</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2020-W52.html" > W52</a>
+                        
+                    </div>
                 
             </div>
         </div>
@@ -590,68 +680,68 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts from the following websites: '['techcrunch.com', 'venturebeat.com', 'gizmodo.com', 'arstechnica.com', 'theverge.com', 'wired.com', 'vice.com', 'zdnet.com', 'engadget.com', 'technologyreview.com', 'cnet.com', 'vox.com', 'fastcompany.com', 'protocol.com', 'wired.co.uk', 'therecord.media', 'qz.com', 'techradar.com', 'techspot.com', 'pcgamer.com', 'thenextweb.com', 'restofworld.org']'">Tech news [?]</h3>
+            <h3 title="Posts from the following websites: '['techcrunch.com', 'venturebeat.com', 'gizmodo.com', 'arstechnica.com', 'theverge.com', 'wired.com', 'vice.com', 'zdnet.com', 'engadget.com', 'technologyreview.com', 'cnet.com', 'vox.com', 'fastcompany.com', 'protocol.com', 'wired.co.uk', 'therecord.media', 'qz.com', 'techradar.com', 'techspot.com', 'pcgamer.com', 'thenextweb.com', 'restofworld.org', 'bleepingcomputer.com']'">Tech news [?]</h3>
         </div>
     </div>
     
         <div class="columns is-mobile ">
             <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="New ‘Meow’ attack has deleted almost 4k unsecured databases" href="https://news.ycombinator.com/item?id=23957510" target="_blank">New ‘Meow’ attack has deleted almost 4k unsecured databases</a></div>
+            <div class="column story-value">841</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
             <div class="column is-9 story-title"><a title="Put tiny businesses back into residential neighborhoods" href="https://news.ycombinator.com/item?id=23934407" target="_blank">Put tiny businesses back into residential neighborhoods</a></div>
             <div class="column story-value">593</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">2</div>
+            <div class="column is-1 rank-no">3</div>
             <div class="column is-9 story-title"><a title="Twitter is at its best when verified accounts can’t tweet" href="https://news.ycombinator.com/item?id=23859401" target="_blank">Twitter is at its best when verified accounts can’t tweet</a></div>
             <div class="column story-value">560</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">3</div>
+            <div class="column is-1 rank-no">4</div>
             <div class="column is-9 story-title"><a title="Twitter internal panel linked to account hijackings" href="https://news.ycombinator.com/item?id=23853786" target="_blank">Twitter internal panel linked to account hijackings</a></div>
             <div class="column story-value">547</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">4</div>
+            <div class="column is-1 rank-no">5</div>
             <div class="column is-9 story-title"><a title="Google to Invest $10B in India" href="https://news.ycombinator.com/item?id=23818648" target="_blank">Google to Invest $10B in India</a></div>
             <div class="column story-value">422</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">5</div>
+            <div class="column is-1 rank-no">6</div>
             <div class="column is-9 story-title"><a title="SUSE to Acquire Rancher Labs" href="https://news.ycombinator.com/item?id=23769563" target="_blank">SUSE to Acquire Rancher Labs</a></div>
             <div class="column story-value">392</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">6</div>
+            <div class="column is-1 rank-no">7</div>
             <div class="column is-9 story-title"><a title="Google reportedly peeks into Android data to gain edge over third-party apps" href="https://news.ycombinator.com/item?id=23955418" target="_blank">Google reportedly peeks into Android data to gain edge over third-party apps</a></div>
             <div class="column story-value">324</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">7</div>
+            <div class="column is-1 rank-no">8</div>
             <div class="column is-9 story-title"><a title="Jeff Bezos can’t promise Amazon employees don’t access independent seller data" href="https://news.ycombinator.com/item?id=23992184" target="_blank">Jeff Bezos can’t promise Amazon employees don’t access independent seller data</a></div>
             <div class="column story-value">312</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">8</div>
+            <div class="column is-1 rank-no">9</div>
             <div class="column is-9 story-title"><a title="A ‘viral’ new bird song in Canada is causing sparrows to change their tune" href="https://news.ycombinator.com/item?id=23730629" target="_blank">A ‘viral’ new bird song in Canada is causing sparrows to change their tune</a></div>
             <div class="column story-value">291</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">9</div>
+            <div class="column is-1 rank-no">10</div>
             <div class="column is-9 story-title"><a title="MS will ban Forza players who add the confederate flag to their digital cars" href="https://news.ycombinator.com/item?id=23715174" target="_blank">MS will ban Forza players who add the confederate flag to their digital cars</a></div>
             <div class="column story-value">288</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">10</div>
-            <div class="column is-9 story-title"><a title="Linux founder tells Intel to stop inventing magic instructions and fix problems" href="https://news.ycombinator.com/item?id=23822203" target="_blank">Linux founder tells Intel to stop inventing magic instructions and fix problems</a></div>
-            <div class="column story-value">287</div>
         </div>
     
 </div>
@@ -866,68 +956,68 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts from the following websites: '['macrumors.com', '9to5mac.com', 'tomshardware.com', 'hackaday.com', 'bleepingcomputer.com', 'anandtech.com', 'newatlas.com', 'appleinsider.com', 'eff.org']'">Tech blogs [?]</h3>
+            <h3 title="Posts from the following websites: '['macrumors.com', '9to5mac.com', 'tomshardware.com', 'hackaday.com', 'anandtech.com', 'newatlas.com', 'appleinsider.com', 'eff.org']'">Tech blogs [?]</h3>
         </div>
     </div>
     
         <div class="columns is-mobile ">
             <div class="column is-1 rank-no">1</div>
-            <div class="column is-9 story-title"><a title="New ‘Meow’ attack has deleted almost 4k unsecured databases" href="https://news.ycombinator.com/item?id=23957510" target="_blank">New ‘Meow’ attack has deleted almost 4k unsecured databases</a></div>
-            <div class="column story-value">841</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">2</div>
             <div class="column is-9 story-title"><a title="Invasive, secretive “bossware” tracking workers" href="https://news.ycombinator.com/item?id=23705495" target="_blank">Invasive, secretive “bossware” tracking workers</a></div>
             <div class="column story-value">337</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">3</div>
+            <div class="column is-1 rank-no">2</div>
             <div class="column is-9 story-title"><a title="AMD Reports Q2 2020 Earnings" href="https://news.ycombinator.com/item?id=23984102" target="_blank">AMD Reports Q2 2020 Earnings</a></div>
             <div class="column story-value">309</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">4</div>
+            <div class="column is-1 rank-no">3</div>
             <div class="column is-9 story-title"><a title="DDR5 Memory Specification Released" href="https://news.ycombinator.com/item?id=23860779" target="_blank">DDR5 Memory Specification Released</a></div>
             <div class="column story-value">213</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">5</div>
+            <div class="column is-1 rank-no">4</div>
             <div class="column is-9 story-title"><a title="Intel's 7nm is Broken, Company Announces Delay Until 2022, 2023" href="https://news.ycombinator.com/item?id=23932585" target="_blank">Intel's 7nm is Broken, Company Announces Delay Until 2022, 2023</a></div>
             <div class="column story-value">210</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">6</div>
+            <div class="column is-1 rank-no">5</div>
             <div class="column is-9 story-title"><a title="Instagram promises to fix bug after always accessing the camera on iOS 14" href="https://news.ycombinator.com/item?id=23950892" target="_blank">Instagram promises to fix bug after always accessing the camera on iOS 14</a></div>
             <div class="column story-value">202</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">7</div>
+            <div class="column is-1 rank-no">6</div>
             <div class="column is-9 story-title"><a title="xMEMS announces the first monolithic MEMS speaker" href="https://news.ycombinator.com/item?id=23780945" target="_blank">xMEMS announces the first monolithic MEMS speaker</a></div>
             <div class="column story-value">148</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">8</div>
+            <div class="column is-1 rank-no">7</div>
             <div class="column is-9 story-title"><a title="AMD Launches 12 Desktop Renoir Ryzen 4000G Series APUs: But You Can’t Buy Them" href="https://news.ycombinator.com/item?id=23906531" target="_blank">AMD Launches 12 Desktop Renoir Ryzen 4000G Series APUs: But You Can’t Buy Them</a></div>
             <div class="column story-value">140</div>
         </div>
     
         <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="AMD Announces Ryzen Threadripper Pro: Workstation Parts for OEMs Only" href="https://news.ycombinator.com/item?id=23834483" target="_blank">AMD Announces Ryzen Threadripper Pro: Workstation Parts for OEMs Only</a></div>
+            <div class="column story-value">133</div>
+        </div>
+    
+        <div class="columns is-mobile ">
             <div class="column is-1 rank-no">9</div>
-            <div class="column is-9 story-title"><a title="Microsoft Outlook is crashing worldwide with 0xc0000005 errors" href="https://news.ycombinator.com/item?id=23848512" target="_blank">Microsoft Outlook is crashing worldwide with 0xc0000005 errors</a></div>
-            <div class="column story-value">135</div>
+            <div class="column is-9 story-title"><a title="Should I buy an Intel Mac today or wait to buy an Arm-based Mac?" href="https://news.ycombinator.com/item?id=23803378" target="_blank">Should I buy an Intel Mac today or wait to buy an Arm-based Mac?</a></div>
+            <div class="column story-value">124</div>
         </div>
     
         <div class="columns is-mobile ">
             <div class="column is-1 rank-no">10</div>
-            <div class="column is-9 story-title"><a title="AMD Announces Ryzen Threadripper Pro: Workstation Parts for OEMs Only" href="https://news.ycombinator.com/item?id=23834483" target="_blank">AMD Announces Ryzen Threadripper Pro: Workstation Parts for OEMs Only</a></div>
-            <div class="column story-value">133</div>
+            <div class="column is-9 story-title"><a title="The Many Methods of Communicating with Submarines" href="https://news.ycombinator.com/item?id=23890897" target="_blank">The Many Methods of Communicating with Submarines</a></div>
+            <div class="column story-value">120</div>
         </div>
     
 </div>
@@ -1280,6 +1370,75 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
+            <h3 title="Posts matching the following domain: 'wikipedia.org'">Wikipedia [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="Low-Background Steel" href="https://news.ycombinator.com/item?id=23886501" target="_blank">Low-Background Steel</a></div>
+            <div class="column story-value">359</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="MagiCan" href="https://news.ycombinator.com/item?id=23904298" target="_blank">MagiCan</a></div>
+            <div class="column story-value">181</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="Göbekli Tepe" href="https://news.ycombinator.com/item?id=23721432" target="_blank">Göbekli Tepe</a></div>
+            <div class="column story-value">142</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="Bohr–van Leeuwen theorem – magnetism in solids is a quantum mechanical effect" href="https://news.ycombinator.com/item?id=23891655" target="_blank">Bohr–van Leeuwen theorem – magnetism in solids is a quantum mechanical effect</a></div>
+            <div class="column story-value">141</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="Ludic Fallacy" href="https://news.ycombinator.com/item?id=23929018" target="_blank">Ludic Fallacy</a></div>
+            <div class="column story-value">119</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="Lincos language" href="https://news.ycombinator.com/item?id=23900745" target="_blank">Lincos language</a></div>
+            <div class="column story-value">80</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Isetta" href="https://news.ycombinator.com/item?id=23736595" target="_blank">Isetta</a></div>
+            <div class="column story-value">72</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Howland Will Forgery Trial" href="https://news.ycombinator.com/item?id=24014633" target="_blank">Howland Will Forgery Trial</a></div>
+            <div class="column story-value">66</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="JP-7" href="https://news.ycombinator.com/item?id=23985148" target="_blank">JP-7</a></div>
+            <div class="column story-value">59</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Nsibidi" href="https://news.ycombinator.com/item?id=23776226" target="_blank">Nsibidi</a></div>
+            <div class="column story-value">55</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
             <h3 title="Posts from the following websites: '['medium.com', 'world.hey.com', 'danluu.com', 'jvns.ca', 'paulgraham.com']'">Blogs [?]</h3>
         </div>
     </div>
@@ -1418,75 +1577,6 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts matching the following domain: 'wikipedia.org'">Wikipedia [?]</h3>
-        </div>
-    </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">1</div>
-            <div class="column is-9 story-title"><a title="Low-Background Steel" href="https://news.ycombinator.com/item?id=23886501" target="_blank">Low-Background Steel</a></div>
-            <div class="column story-value">359</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">2</div>
-            <div class="column is-9 story-title"><a title="MagiCan" href="https://news.ycombinator.com/item?id=23904298" target="_blank">MagiCan</a></div>
-            <div class="column story-value">181</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">3</div>
-            <div class="column is-9 story-title"><a title="Göbekli Tepe" href="https://news.ycombinator.com/item?id=23721432" target="_blank">Göbekli Tepe</a></div>
-            <div class="column story-value">142</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">4</div>
-            <div class="column is-9 story-title"><a title="Bohr–van Leeuwen theorem – magnetism in solids is a quantum mechanical effect" href="https://news.ycombinator.com/item?id=23891655" target="_blank">Bohr–van Leeuwen theorem – magnetism in solids is a quantum mechanical effect</a></div>
-            <div class="column story-value">141</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">5</div>
-            <div class="column is-9 story-title"><a title="Ludic Fallacy" href="https://news.ycombinator.com/item?id=23929018" target="_blank">Ludic Fallacy</a></div>
-            <div class="column story-value">119</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">6</div>
-            <div class="column is-9 story-title"><a title="Lincos language" href="https://news.ycombinator.com/item?id=23900745" target="_blank">Lincos language</a></div>
-            <div class="column story-value">80</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">7</div>
-            <div class="column is-9 story-title"><a title="Isetta" href="https://news.ycombinator.com/item?id=23736595" target="_blank">Isetta</a></div>
-            <div class="column story-value">72</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">8</div>
-            <div class="column is-9 story-title"><a title="Howland Will Forgery Trial" href="https://news.ycombinator.com/item?id=24014633" target="_blank">Howland Will Forgery Trial</a></div>
-            <div class="column story-value">66</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">9</div>
-            <div class="column is-9 story-title"><a title="JP-7" href="https://news.ycombinator.com/item?id=23985148" target="_blank">JP-7</a></div>
-            <div class="column story-value">59</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">10</div>
-            <div class="column is-9 story-title"><a title="Nsibidi" href="https://news.ycombinator.com/item?id=23776226" target="_blank">Nsibidi</a></div>
-            <div class="column story-value">55</div>
-        </div>
-    
-</div>
-
-<div class="column is-one-third-widescreen is-half-desktop">
-    <div class="columns has-text-centered">
-        <div class="column">
             <h3 title="Posts matching the following domain: 'substack.com'">Substack [?]</h3>
         </div>
     </div>
@@ -1563,6 +1653,7 @@ h3{
           </p>
         </div>
       </footer>
+      <script src="/main.js" defer></script>
 </body>
 
 </html>

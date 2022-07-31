@@ -29,12 +29,24 @@
             </div>
             <div class="columns is-mobile date-selector">
                 {% for month in ALL_MONTHS %}
-                    <div class="column has-text-centered month"><a href="/{{selected_year}}-{{month.numeric}}.html" {% if selected_month and month.numeric == selected_month %} id="selected-month" class="is-active"{% endif %}>{{ month.name }}</a></div>
+                    <div class="column has-text-centered month">
+                        {% if month['is_available'] %}
+                            <a href="{{month['url']}}" {% if selected_month and month.month == selected_month %} id="selected-month" class="is-active"{% endif %}>{{ month.name }}</a>
+                        {% else %}
+                            <span class="disabled">{{ month.name }}</span>
+                        {% endif %}
+                    </div>
                 {% endfor %}
             </div>
             <div class="columns is-mobile date-selector week-selector">
                 {% for week in ALL_WEEKS %}
-                    <div class="column week"><a href="/{{selected_year}}-W{{week}}.html" {% if selected_week and week == selected_week %}  id="selected-week" class="is-active" {% endif %}> W{{week}}</a></div>
+                    <div class="column week">
+                        {% if week["is_available"] %}
+                            <a href="{{week['url']}}" {% if selected_week and week.week == selected_week %}  id="selected-week" class="is-active" {% endif %}> {{week.name}}</a>
+                        {% else %}
+                            <span class="disabled">{{ week.name }}</span>
+                        {% endif%}
+                    </div>
                 {% endfor %}
             </div>
         </div>

@@ -18,6 +18,7 @@ ALL_YEARS = [
     2019,
     2020,
     2021,
+    2022
 ]
 
 _all_months = [date(2021, i, 1) for i in range(1, 13)]

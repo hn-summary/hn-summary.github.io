@@ -4,185 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/styles.css">
 
     <title>Hacker News Top Charts - 2018-04-01 to 2018-05-01</title>
     <meta name="description" content="Top Hacker News posts from April 01, 2018 to May 01, 2018">
-    <style>
-        * {
-            font-family: monospace;
-            font-size: 1em;
-            /* border: 0;
-            margin: 0;
-            padding: 0; */
-            list-style: none;
-            font-weight: normal;
-            color: #000;
-        }
-
-        strong,
-        b {
-            font-weight: bold
-        }
-
-        em,
-        i {
-            font-style: italic
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: #900
-        }
-
-        h1 code,
-        h2 code,
-        h3 code,
-        h4 code,
-        h5 code,
-        h6 code {
-            background: #fff
-        }
-
-        h1::before {
-            content: "# ";
-            color: #09a
-        }
-
-        h2::before {
-            content: "## ";
-            color: #09a
-        }
-
-        h3::before {
-            content: "### ";
-            color: #09a
-        }
-
-        h4::before {
-            content: "#### ";
-            color: #09a
-        }
-
-        h5::before {
-            content: "##### ";
-            color: #09a
-        }
-
-        h6::before {
-            content: "###### ";
-            color: #09a
-        }
-        a:hover{ color:#f00; }
-
-        .header {
-            padding: 20px 0px 20px 0px;
-            text-align: center;
-        }
-
-        .section {
-            padding: 1rem 1rem;
-        }
-        .section-charts{
-            padding-top: 5rem;
-        }
-        .section-title{
-            padding-bottom: 1rem;
-        }
-
-        .column.year,
-        .column.month,
-        .column.week {
-            text-align: center;
-        }
-
-        .year, .month, .week {
-            font-size: 1.1em;
-        }
-        .week{
-            font-size: .8em;
-        }
-
-        .top-title {
-            text-align: center;
-        }
-        .date-selector{
-            border-bottom: 1px solid #8e8e8e;
-        }
-        .week-selector{
-            max-height: 150px;
-            overflow: scroll;
-            border:none;
-        }
-        .is-active {
-            /* text-decoration: underline;
-            text-decoration-thickness: 3px;
-            text-decoration-color: red; */
-            text-decoration: none;
-            position: relative;
-            font-weight: bold;
-
-        }
-        .is-active:after {
-    content: '';
-
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    color: #fe93c8;
-
-    border-width: 0 0 3px;
-    border-style: solid;
-}
-.rank-no{
-    padding-right: 0px;
-    padding-left: 5px;
-    color: #6a6a6a;
-}
-.rank-no::after{
-    content: ".";
-    color: #fb0;
-    font-weight: bold;
-}
-.story-title{
-    padding-left: 0px;
-    padding-right: 0px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-white-space: nowrap;
-
-}
-.story-value{
-    padding-right: 0px;
-    position: relative;
-}
-.story-value::after{
-    content: "pt.";
-    position: absolute;
-    top: 5px;
-    font-size: .5em;
-    color: #09a;
-    font-weight: bold;
-}
-
-h1{
-    font-size: 1.5em;
-}
-h2{
-    font-size: 1.3em;
-}
-h3{
-    font-size: 1.1em;
-}
-    </style>
 </head>
 
 <body>
-    <section class="section heaader">
+    <section class="section floating-options">
+        <a id="dark-mode-toggle">Go dark</a>
+    </section>
+    <section class="section header">
         <div class="container" style="text-align: center;">
             <h1>Top HN Stories</h1>
             <p>[from <strong>Apr 01, 2018</strong> to <strong>May 01, 2018</strong>)</p>
@@ -190,7 +22,7 @@ h3{
     </section>
     <section class="section">
         <div class="container">
-            <div class="columns is-mobile is-multiline date-selector">
+            <div class="columns is-mobile date-selector">
                 
                     <div class="column has-text-centered year"><a href="/2006.html" >2006</a></div>
                 
@@ -216,7 +48,7 @@ h3{
                 
                     <div class="column has-text-centered year"><a href="/2017.html" >2017</a></div>
                 
-                    <div class="column has-text-centered year"><a href="/2018.html" class="is-active">2018</a></div>
+                    <div class="column has-text-centered year"><a href="/2018.html"  id="selected-year" class="is-active">2018</a></div>
                 
                     <div class="column has-text-centered year"><a href="/2019.html" >2019</a></div>
                 
@@ -224,139 +56,397 @@ h3{
                 
                     <div class="column has-text-centered year"><a href="/2021.html" >2021</a></div>
                 
-            </div>
-            <div class="columns is-mobile is-multiline date-selector">
-                
-                    <div class="column has-text-centered month"><a href="/2018-01.html" >Jan</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-02.html" >Feb</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-03.html" >Mar</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-04.html" class="is-active">Apr</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-05.html" >May</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-06.html" >Jun</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-07.html" >Jul</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-08.html" >Aug</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-09.html" >Sep</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-10.html" >Oct</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-11.html" >Nov</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2018-12.html" >Dec</a></div>
+                    <div class="column has-text-centered year"><a href="/2022.html" >2022</a></div>
                 
             </div>
-            <div class="columns is-mobile is-multiline date-selector week-selector">
+            <div class="columns is-mobile date-selector">
                 
-                    <div class="column week"><a href="/2018-W1.html" > W1</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-1.html" >Jan</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W2.html" > W2</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-2.html" >Feb</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W3.html" > W3</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-3.html" >Mar</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W4.html" > W4</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-4.html"  id="selected-month" class="is-active">Apr</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W5.html" > W5</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-5.html" >May</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W6.html" > W6</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-6.html" >Jun</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W7.html" > W7</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-7.html" >Jul</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W8.html" > W8</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-8.html" >Aug</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W9.html" > W9</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-9.html" >Sep</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W10.html" > W10</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-10.html" >Oct</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W11.html" > W11</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-11.html" >Nov</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W12.html" > W12</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2018-12.html" >Dec</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W13.html" > W13</a></div>
+            </div>
+            <div class="columns is-mobile date-selector week-selector">
                 
-                    <div class="column week"><a href="/2018-W14.html" > W14</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W1.html" > W1</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W15.html" > W15</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W2.html" > W2</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W16.html" > W16</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W3.html" > W3</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W17.html" > W17</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W4.html" > W4</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W18.html" > W18</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W5.html" > W5</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W19.html" > W19</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W6.html" > W6</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W20.html" > W20</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W7.html" > W7</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W21.html" > W21</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W8.html" > W8</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W22.html" > W22</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W9.html" > W9</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W23.html" > W23</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W10.html" > W10</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W24.html" > W24</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W11.html" > W11</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W25.html" > W25</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W12.html" > W12</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W26.html" > W26</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W13.html" > W13</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W27.html" > W27</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W14.html" > W14</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W28.html" > W28</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W15.html" > W15</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W29.html" > W29</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W16.html" > W16</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W30.html" > W30</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W17.html" > W17</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W31.html" > W31</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W18.html" > W18</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W32.html" > W32</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W19.html" > W19</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W33.html" > W33</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W20.html" > W20</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W34.html" > W34</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W21.html" > W21</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W35.html" > W35</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W22.html" > W22</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W36.html" > W36</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W23.html" > W23</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W37.html" > W37</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W24.html" > W24</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W38.html" > W38</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W25.html" > W25</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W39.html" > W39</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W26.html" > W26</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W40.html" > W40</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W27.html" > W27</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W41.html" > W41</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W28.html" > W28</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W42.html" > W42</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W29.html" > W29</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W43.html" > W43</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W30.html" > W30</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W44.html" > W44</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W31.html" > W31</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W45.html" > W45</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W32.html" > W32</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W46.html" > W46</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W33.html" > W33</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W47.html" > W47</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W34.html" > W34</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W48.html" > W48</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W35.html" > W35</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W49.html" > W49</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W36.html" > W36</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W50.html" > W50</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W37.html" > W37</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W51.html" > W51</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W38.html" > W38</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2018-W52.html" > W52</a></div>
+                    <div class="column week">
+                        
+                            <a href="2018-W39.html" > W39</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W40.html" > W40</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W41.html" > W41</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W42.html" > W42</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W43.html" > W43</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W44.html" > W44</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W45.html" > W45</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W46.html" > W46</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W47.html" > W47</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W48.html" > W48</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W49.html" > W49</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W50.html" > W50</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W51.html" > W51</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2018-W52.html" > W52</a>
+                        
+                    </div>
                 
             </div>
         </div>
@@ -590,7 +680,7 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts from the following websites: '['techcrunch.com', 'venturebeat.com', 'gizmodo.com', 'arstechnica.com', 'theverge.com', 'wired.com', 'vice.com', 'zdnet.com', 'engadget.com', 'technologyreview.com', 'cnet.com', 'vox.com', 'fastcompany.com', 'protocol.com', 'wired.co.uk', 'therecord.media', 'qz.com', 'techradar.com', 'techspot.com', 'pcgamer.com', 'thenextweb.com', 'restofworld.org']'">Tech news [?]</h3>
+            <h3 title="Posts from the following websites: '['techcrunch.com', 'venturebeat.com', 'gizmodo.com', 'arstechnica.com', 'theverge.com', 'wired.com', 'vice.com', 'zdnet.com', 'engadget.com', 'technologyreview.com', 'cnet.com', 'vox.com', 'fastcompany.com', 'protocol.com', 'wired.co.uk', 'therecord.media', 'qz.com', 'techradar.com', 'techspot.com', 'pcgamer.com', 'thenextweb.com', 'restofworld.org', 'bleepingcomputer.com']'">Tech news [?]</h3>
         </div>
     </div>
     
@@ -866,68 +956,68 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts from the following websites: '['macrumors.com', '9to5mac.com', 'tomshardware.com', 'hackaday.com', 'bleepingcomputer.com', 'anandtech.com', 'newatlas.com', 'appleinsider.com', 'eff.org']'">Tech blogs [?]</h3>
+            <h3 title="Posts from the following websites: '['macrumors.com', '9to5mac.com', 'tomshardware.com', 'hackaday.com', 'anandtech.com', 'newatlas.com', 'appleinsider.com', 'eff.org']'">Tech blogs [?]</h3>
         </div>
     </div>
     
         <div class="columns is-mobile ">
             <div class="column is-1 rank-no">1</div>
-            <div class="column is-9 story-title"><a title="Russia Bans 1.8M Amazon and Google IPs in Attempt to Block Telegram" href="https://news.ycombinator.com/item?id=16856509" target="_blank">Russia Bans 1.8M Amazon and Google IPs in Attempt to Block Telegram</a></div>
-            <div class="column story-value">330</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">2</div>
             <div class="column is-9 story-title"><a title="European Copyright Law Could Soon Get Worse" href="https://news.ycombinator.com/item?id=16834509" target="_blank">European Copyright Law Could Soon Get Worse</a></div>
             <div class="column story-value">290</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">3</div>
+            <div class="column is-1 rank-no">2</div>
             <div class="column is-9 story-title"><a title="The FBI could have broken into San Bernadino shooter's phone without Apple" href="https://news.ycombinator.com/item?id=16764716" target="_blank">The FBI could have broken into San Bernadino shooter's phone without Apple</a></div>
             <div class="column story-value">252</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">4</div>
+            <div class="column is-1 rank-no">3</div>
             <div class="column is-9 story-title"><a title="Intel's 10nm Is Broken, Delayed Until 2019" href="https://news.ycombinator.com/item?id=16938423" target="_blank">Intel's 10nm Is Broken, Delayed Until 2019</a></div>
             <div class="column story-value">242</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">5</div>
+            <div class="column is-1 rank-no">4</div>
             <div class="column is-9 story-title"><a title="Intel brings a six-core i9 CPU to laptops" href="https://news.ycombinator.com/item?id=16743983" target="_blank">Intel brings a six-core i9 CPU to laptops</a></div>
             <div class="column story-value">238</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">6</div>
+            <div class="column is-1 rank-no">5</div>
             <div class="column is-9 story-title"><a title="TSMC Kicks Off Volume Production of 7nm Chips" href="https://news.ycombinator.com/item?id=16916985" target="_blank">TSMC Kicks Off Volume Production of 7nm Chips</a></div>
             <div class="column story-value">237</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">7</div>
-            <div class="column is-9 story-title"><a title="Over 65,000 Home Routers Are Proxying Bad Traffic for Botnets, APTs" href="https://news.ycombinator.com/item?id=16847716" target="_blank">Over 65,000 Home Routers Are Proxying Bad Traffic for Botnets, APTs</a></div>
-            <div class="column story-value">213</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">8</div>
+            <div class="column is-1 rank-no">6</div>
             <div class="column is-9 story-title"><a title="AMD 2nd Gen Ryzen Deep Dive" href="https://news.ycombinator.com/item?id=16875587" target="_blank">AMD 2nd Gen Ryzen Deep Dive</a></div>
             <div class="column story-value">205</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">9</div>
+            <div class="column is-1 rank-no">7</div>
             <div class="column is-9 story-title"><a title="To Delete Facebook or Not to Delete Facebook? That Is Not the Question" href="https://news.ycombinator.com/item?id=16894423" target="_blank">To Delete Facebook or Not to Delete Facebook? That Is Not the Question</a></div>
             <div class="column story-value">187</div>
         </div>
     
         <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">10</div>
+            <div class="column is-1 rank-no">8</div>
             <div class="column is-9 story-title"><a title="Transparent ceramics made with aluminum" href="https://news.ycombinator.com/item?id=16751546" target="_blank">Transparent ceramics made with aluminum</a></div>
             <div class="column story-value">169</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="Another Reason to Learn Morse Code: Kidnapping" href="https://news.ycombinator.com/item?id=16830228" target="_blank">Another Reason to Learn Morse Code: Kidnapping</a></div>
+            <div class="column story-value">134</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="User Privacy Isn't Solely a Facebook Issue" href="https://news.ycombinator.com/item?id=16831072" target="_blank">User Privacy Isn't Solely a Facebook Issue</a></div>
+            <div class="column story-value">124</div>
         </div>
     
 </div>
@@ -1280,6 +1370,75 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
+            <h3 title="Posts matching the following domain: 'wikipedia.org'">Wikipedia [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="Illegal prime" href="https://news.ycombinator.com/item?id=16938908" target="_blank">Illegal prime</a></div>
+            <div class="column story-value">267</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="Kasparov versus the World" href="https://news.ycombinator.com/item?id=16947440" target="_blank">Kasparov versus the World</a></div>
+            <div class="column story-value">256</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="Gravitation water vortex power plant" href="https://news.ycombinator.com/item?id=16891441" target="_blank">Gravitation water vortex power plant</a></div>
+            <div class="column story-value">227</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title="Conway's Law" href="https://news.ycombinator.com/item?id=16856537" target="_blank">Conway's Law</a></div>
+            <div class="column story-value">134</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="Great Vowel Shift" href="https://news.ycombinator.com/item?id=16774428" target="_blank">Great Vowel Shift</a></div>
+            <div class="column story-value">129</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="Molyneux's problem" href="https://news.ycombinator.com/item?id=16778983" target="_blank">Molyneux's problem</a></div>
+            <div class="column story-value">122</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Eroom's law" href="https://news.ycombinator.com/item?id=16836367" target="_blank">Eroom's law</a></div>
+            <div class="column story-value">120</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Dunbar's Number" href="https://news.ycombinator.com/item?id=16782687" target="_blank">Dunbar's Number</a></div>
+            <div class="column story-value">108</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="Gruen transfer" href="https://news.ycombinator.com/item?id=16845078" target="_blank">Gruen transfer</a></div>
+            <div class="column story-value">105</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="Microsoft v MikeRoweSoft" href="https://news.ycombinator.com/item?id=16861238" target="_blank">Microsoft v MikeRoweSoft</a></div>
+            <div class="column story-value">96</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
             <h3 title="Posts from the following websites: '['medium.com', 'world.hey.com', 'danluu.com', 'jvns.ca', 'paulgraham.com']'">Blogs [?]</h3>
         </div>
     </div>
@@ -1418,75 +1577,6 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts matching the following domain: 'wikipedia.org'">Wikipedia [?]</h3>
-        </div>
-    </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">1</div>
-            <div class="column is-9 story-title"><a title="Illegal prime" href="https://news.ycombinator.com/item?id=16938908" target="_blank">Illegal prime</a></div>
-            <div class="column story-value">267</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">2</div>
-            <div class="column is-9 story-title"><a title="Kasparov versus the World" href="https://news.ycombinator.com/item?id=16947440" target="_blank">Kasparov versus the World</a></div>
-            <div class="column story-value">256</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">3</div>
-            <div class="column is-9 story-title"><a title="Gravitation water vortex power plant" href="https://news.ycombinator.com/item?id=16891441" target="_blank">Gravitation water vortex power plant</a></div>
-            <div class="column story-value">227</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">4</div>
-            <div class="column is-9 story-title"><a title="Conway's Law" href="https://news.ycombinator.com/item?id=16856537" target="_blank">Conway's Law</a></div>
-            <div class="column story-value">134</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">5</div>
-            <div class="column is-9 story-title"><a title="Great Vowel Shift" href="https://news.ycombinator.com/item?id=16774428" target="_blank">Great Vowel Shift</a></div>
-            <div class="column story-value">129</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">6</div>
-            <div class="column is-9 story-title"><a title="Molyneux's problem" href="https://news.ycombinator.com/item?id=16778983" target="_blank">Molyneux's problem</a></div>
-            <div class="column story-value">122</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">7</div>
-            <div class="column is-9 story-title"><a title="Eroom's law" href="https://news.ycombinator.com/item?id=16836367" target="_blank">Eroom's law</a></div>
-            <div class="column story-value">120</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">8</div>
-            <div class="column is-9 story-title"><a title="Dunbar's Number" href="https://news.ycombinator.com/item?id=16782687" target="_blank">Dunbar's Number</a></div>
-            <div class="column story-value">108</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">9</div>
-            <div class="column is-9 story-title"><a title="Gruen transfer" href="https://news.ycombinator.com/item?id=16845078" target="_blank">Gruen transfer</a></div>
-            <div class="column story-value">105</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">10</div>
-            <div class="column is-9 story-title"><a title="Microsoft v MikeRoweSoft" href="https://news.ycombinator.com/item?id=16861238" target="_blank">Microsoft v MikeRoweSoft</a></div>
-            <div class="column story-value">96</div>
-        </div>
-    
-</div>
-
-<div class="column is-one-third-widescreen is-half-desktop">
-    <div class="columns has-text-centered">
-        <div class="column">
             <h3 title="Posts matching the following domain: 'substack.com'">Substack [?]</h3>
         </div>
     </div>
@@ -1551,6 +1641,7 @@ h3{
           </p>
         </div>
       </footer>
+      <script src="/main.js" defer></script>
 </body>
 
 </html>

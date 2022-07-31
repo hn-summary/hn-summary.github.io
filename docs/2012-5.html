@@ -4,185 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/styles.css">
 
     <title>Hacker News Top Charts - 2012-05-01 to 2012-06-01</title>
     <meta name="description" content="Top Hacker News posts from May 01, 2012 to June 01, 2012">
-    <style>
-        * {
-            font-family: monospace;
-            font-size: 1em;
-            /* border: 0;
-            margin: 0;
-            padding: 0; */
-            list-style: none;
-            font-weight: normal;
-            color: #000;
-        }
-
-        strong,
-        b {
-            font-weight: bold
-        }
-
-        em,
-        i {
-            font-style: italic
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            color: #900
-        }
-
-        h1 code,
-        h2 code,
-        h3 code,
-        h4 code,
-        h5 code,
-        h6 code {
-            background: #fff
-        }
-
-        h1::before {
-            content: "# ";
-            color: #09a
-        }
-
-        h2::before {
-            content: "## ";
-            color: #09a
-        }
-
-        h3::before {
-            content: "### ";
-            color: #09a
-        }
-
-        h4::before {
-            content: "#### ";
-            color: #09a
-        }
-
-        h5::before {
-            content: "##### ";
-            color: #09a
-        }
-
-        h6::before {
-            content: "###### ";
-            color: #09a
-        }
-        a:hover{ color:#f00; }
-
-        .header {
-            padding: 20px 0px 20px 0px;
-            text-align: center;
-        }
-
-        .section {
-            padding: 1rem 1rem;
-        }
-        .section-charts{
-            padding-top: 5rem;
-        }
-        .section-title{
-            padding-bottom: 1rem;
-        }
-
-        .column.year,
-        .column.month,
-        .column.week {
-            text-align: center;
-        }
-
-        .year, .month, .week {
-            font-size: 1.1em;
-        }
-        .week{
-            font-size: .8em;
-        }
-
-        .top-title {
-            text-align: center;
-        }
-        .date-selector{
-            border-bottom: 1px solid #8e8e8e;
-        }
-        .week-selector{
-            max-height: 150px;
-            overflow: scroll;
-            border:none;
-        }
-        .is-active {
-            /* text-decoration: underline;
-            text-decoration-thickness: 3px;
-            text-decoration-color: red; */
-            text-decoration: none;
-            position: relative;
-            font-weight: bold;
-
-        }
-        .is-active:after {
-    content: '';
-
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    color: #fe93c8;
-
-    border-width: 0 0 3px;
-    border-style: solid;
-}
-.rank-no{
-    padding-right: 0px;
-    padding-left: 5px;
-    color: #6a6a6a;
-}
-.rank-no::after{
-    content: ".";
-    color: #fb0;
-    font-weight: bold;
-}
-.story-title{
-    padding-left: 0px;
-    padding-right: 0px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-white-space: nowrap;
-
-}
-.story-value{
-    padding-right: 0px;
-    position: relative;
-}
-.story-value::after{
-    content: "pt.";
-    position: absolute;
-    top: 5px;
-    font-size: .5em;
-    color: #09a;
-    font-weight: bold;
-}
-
-h1{
-    font-size: 1.5em;
-}
-h2{
-    font-size: 1.3em;
-}
-h3{
-    font-size: 1.1em;
-}
-    </style>
 </head>
 
 <body>
-    <section class="section heaader">
+    <section class="section floating-options">
+        <a id="dark-mode-toggle">Go dark</a>
+    </section>
+    <section class="section header">
         <div class="container" style="text-align: center;">
             <h1>Top HN Stories</h1>
             <p>[from <strong>May 01, 2012</strong> to <strong>Jun 01, 2012</strong>)</p>
@@ -190,7 +22,7 @@ h3{
     </section>
     <section class="section">
         <div class="container">
-            <div class="columns is-mobile is-multiline date-selector">
+            <div class="columns is-mobile date-selector">
                 
                     <div class="column has-text-centered year"><a href="/2006.html" >2006</a></div>
                 
@@ -204,7 +36,7 @@ h3{
                 
                     <div class="column has-text-centered year"><a href="/2011.html" >2011</a></div>
                 
-                    <div class="column has-text-centered year"><a href="/2012.html" class="is-active">2012</a></div>
+                    <div class="column has-text-centered year"><a href="/2012.html"  id="selected-year" class="is-active">2012</a></div>
                 
                     <div class="column has-text-centered year"><a href="/2013.html" >2013</a></div>
                 
@@ -224,139 +56,397 @@ h3{
                 
                     <div class="column has-text-centered year"><a href="/2021.html" >2021</a></div>
                 
-            </div>
-            <div class="columns is-mobile is-multiline date-selector">
-                
-                    <div class="column has-text-centered month"><a href="/2012-01.html" >Jan</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-02.html" >Feb</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-03.html" >Mar</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-04.html" >Apr</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-05.html" class="is-active">May</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-06.html" >Jun</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-07.html" >Jul</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-08.html" >Aug</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-09.html" >Sep</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-10.html" >Oct</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-11.html" >Nov</a></div>
-                
-                    <div class="column has-text-centered month"><a href="/2012-12.html" >Dec</a></div>
+                    <div class="column has-text-centered year"><a href="/2022.html" >2022</a></div>
                 
             </div>
-            <div class="columns is-mobile is-multiline date-selector week-selector">
+            <div class="columns is-mobile date-selector">
                 
-                    <div class="column week"><a href="/2012-W1.html" > W1</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-1.html" >Jan</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W2.html" > W2</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-2.html" >Feb</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W3.html" > W3</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-3.html" >Mar</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W4.html" > W4</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-4.html" >Apr</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W5.html" > W5</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-5.html"  id="selected-month" class="is-active">May</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W6.html" > W6</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-6.html" >Jun</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W7.html" > W7</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-7.html" >Jul</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W8.html" > W8</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-8.html" >Aug</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W9.html" > W9</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-9.html" >Sep</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W10.html" > W10</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-10.html" >Oct</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W11.html" > W11</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-11.html" >Nov</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W12.html" > W12</a></div>
+                    <div class="column has-text-centered month">
+                        
+                            <a href="2012-12.html" >Dec</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W13.html" > W13</a></div>
+            </div>
+            <div class="columns is-mobile date-selector week-selector">
                 
-                    <div class="column week"><a href="/2012-W14.html" > W14</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W1.html" > W1</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W15.html" > W15</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W2.html" > W2</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W16.html" > W16</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W3.html" > W3</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W17.html" > W17</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W4.html" > W4</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W18.html" > W18</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W5.html" > W5</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W19.html" > W19</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W6.html" > W6</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W20.html" > W20</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W7.html" > W7</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W21.html" > W21</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W8.html" > W8</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W22.html" > W22</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W9.html" > W9</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W23.html" > W23</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W10.html" > W10</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W24.html" > W24</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W11.html" > W11</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W25.html" > W25</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W12.html" > W12</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W26.html" > W26</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W13.html" > W13</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W27.html" > W27</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W14.html" > W14</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W28.html" > W28</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W15.html" > W15</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W29.html" > W29</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W16.html" > W16</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W30.html" > W30</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W17.html" > W17</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W31.html" > W31</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W18.html" > W18</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W32.html" > W32</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W19.html" > W19</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W33.html" > W33</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W20.html" > W20</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W34.html" > W34</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W21.html" > W21</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W35.html" > W35</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W22.html" > W22</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W36.html" > W36</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W23.html" > W23</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W37.html" > W37</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W24.html" > W24</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W38.html" > W38</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W25.html" > W25</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W39.html" > W39</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W26.html" > W26</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W40.html" > W40</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W27.html" > W27</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W41.html" > W41</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W28.html" > W28</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W42.html" > W42</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W29.html" > W29</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W43.html" > W43</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W30.html" > W30</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W44.html" > W44</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W31.html" > W31</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W45.html" > W45</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W32.html" > W32</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W46.html" > W46</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W33.html" > W33</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W47.html" > W47</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W34.html" > W34</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W48.html" > W48</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W35.html" > W35</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W49.html" > W49</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W36.html" > W36</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W50.html" > W50</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W37.html" > W37</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W51.html" > W51</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W38.html" > W38</a>
+                        
+                    </div>
                 
-                    <div class="column week"><a href="/2012-W52.html" > W52</a></div>
+                    <div class="column week">
+                        
+                            <a href="2012-W39.html" > W39</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W40.html" > W40</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W41.html" > W41</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W42.html" > W42</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W43.html" > W43</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W44.html" > W44</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W45.html" > W45</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W46.html" > W46</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W47.html" > W47</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W48.html" > W48</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W49.html" > W49</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W50.html" > W50</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W51.html" > W51</a>
+                        
+                    </div>
+                
+                    <div class="column week">
+                        
+                            <a href="2012-W52.html" > W52</a>
+                        
+                    </div>
                 
             </div>
         </div>
@@ -590,7 +680,7 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts from the following websites: '['techcrunch.com', 'venturebeat.com', 'gizmodo.com', 'arstechnica.com', 'theverge.com', 'wired.com', 'vice.com', 'zdnet.com', 'engadget.com', 'technologyreview.com', 'cnet.com', 'vox.com', 'fastcompany.com', 'protocol.com', 'wired.co.uk', 'therecord.media', 'qz.com', 'techradar.com', 'techspot.com', 'pcgamer.com', 'thenextweb.com', 'restofworld.org']'">Tech news [?]</h3>
+            <h3 title="Posts from the following websites: '['techcrunch.com', 'venturebeat.com', 'gizmodo.com', 'arstechnica.com', 'theverge.com', 'wired.com', 'vice.com', 'zdnet.com', 'engadget.com', 'technologyreview.com', 'cnet.com', 'vox.com', 'fastcompany.com', 'protocol.com', 'wired.co.uk', 'therecord.media', 'qz.com', 'techradar.com', 'techspot.com', 'pcgamer.com', 'thenextweb.com', 'restofworld.org', 'bleepingcomputer.com']'">Tech news [?]</h3>
         </div>
     </div>
     
@@ -866,7 +956,7 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts from the following websites: '['macrumors.com', '9to5mac.com', 'tomshardware.com', 'hackaday.com', 'bleepingcomputer.com', 'anandtech.com', 'newatlas.com', 'appleinsider.com', 'eff.org']'">Tech blogs [?]</h3>
+            <h3 title="Posts from the following websites: '['macrumors.com', '9to5mac.com', 'tomshardware.com', 'hackaday.com', 'anandtech.com', 'newatlas.com', 'appleinsider.com', 'eff.org']'">Tech blogs [?]</h3>
         </div>
     </div>
     
@@ -1280,6 +1370,75 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
+            <h3 title="Posts matching the following domain: 'wikipedia.org'">Wikipedia [?]</h3>
+        </div>
+    </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">1</div>
+            <div class="column is-9 story-title"><a title="Timeline of the far future" href="https://news.ycombinator.com/item?id=3936320" target="_blank">Timeline of the far future</a></div>
+            <div class="column story-value">291</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">2</div>
+            <div class="column is-9 story-title"><a title="Satellite killed by trajectory patent" href="https://news.ycombinator.com/item?id=3999756" target="_blank">Satellite killed by trajectory patent</a></div>
+            <div class="column story-value">191</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">3</div>
+            <div class="column is-9 story-title"><a title="XOR Linked List" href="https://news.ycombinator.com/item?id=3925883" target="_blank">XOR Linked List</a></div>
+            <div class="column story-value">150</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">4</div>
+            <div class="column is-9 story-title"><a title=""Do Not Track" HTTP header supported by IE, Opera, FF, Safari but not Chrome" href="https://news.ycombinator.com/item?id=4000282" target="_blank">"Do Not Track" HTTP header supported by IE, Opera, FF, Safari but not Chrome</a></div>
+            <div class="column story-value">142</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">5</div>
+            <div class="column is-9 story-title"><a title="Curse of dimensionality" href="https://news.ycombinator.com/item?id=4045143" target="_blank">Curse of dimensionality</a></div>
+            <div class="column story-value">88</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">6</div>
+            <div class="column is-9 story-title"><a title="List of emerging technologies" href="https://news.ycombinator.com/item?id=3987566" target="_blank">List of emerging technologies</a></div>
+            <div class="column story-value">76</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">7</div>
+            <div class="column is-9 story-title"><a title="Lego - the Largest Tyre Manufacturer in the World" href="https://news.ycombinator.com/item?id=4000096" target="_blank">Lego - the Largest Tyre Manufacturer in the World</a></div>
+            <div class="column story-value">65</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">8</div>
+            <div class="column is-9 story-title"><a title="Malbolge (programming language)" href="https://news.ycombinator.com/item?id=4042148" target="_blank">Malbolge (programming language)</a></div>
+            <div class="column story-value">40</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">9</div>
+            <div class="column is-9 story-title"><a title="Facebook: 29 Acquisitions and Counting - Who is next?" href="https://news.ycombinator.com/item?id=4045164" target="_blank">Facebook: 29 Acquisitions and Counting - Who is next?</a></div>
+            <div class="column story-value">9</div>
+        </div>
+    
+        <div class="columns is-mobile ">
+            <div class="column is-1 rank-no">10</div>
+            <div class="column is-9 story-title"><a title="IBM Simon, World's First Smartphone From 1993" href="https://news.ycombinator.com/item?id=3994923" target="_blank">IBM Simon, World's First Smartphone From 1993</a></div>
+            <div class="column story-value">8</div>
+        </div>
+    
+</div>
+
+<div class="column is-one-third-widescreen is-half-desktop">
+    <div class="columns has-text-centered">
+        <div class="column">
             <h3 title="Posts from the following websites: '['medium.com', 'world.hey.com', 'danluu.com', 'jvns.ca', 'paulgraham.com']'">Blogs [?]</h3>
         </div>
     </div>
@@ -1376,75 +1535,6 @@ h3{
 <div class="column is-one-third-widescreen is-half-desktop">
     <div class="columns has-text-centered">
         <div class="column">
-            <h3 title="Posts matching the following domain: 'wikipedia.org'">Wikipedia [?]</h3>
-        </div>
-    </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">1</div>
-            <div class="column is-9 story-title"><a title="Timeline of the far future" href="https://news.ycombinator.com/item?id=3936320" target="_blank">Timeline of the far future</a></div>
-            <div class="column story-value">291</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">2</div>
-            <div class="column is-9 story-title"><a title="Satellite killed by trajectory patent" href="https://news.ycombinator.com/item?id=3999756" target="_blank">Satellite killed by trajectory patent</a></div>
-            <div class="column story-value">191</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">3</div>
-            <div class="column is-9 story-title"><a title="XOR Linked List" href="https://news.ycombinator.com/item?id=3925883" target="_blank">XOR Linked List</a></div>
-            <div class="column story-value">150</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">4</div>
-            <div class="column is-9 story-title"><a title=""Do Not Track" HTTP header supported by IE, Opera, FF, Safari but not Chrome" href="https://news.ycombinator.com/item?id=4000282" target="_blank">"Do Not Track" HTTP header supported by IE, Opera, FF, Safari but not Chrome</a></div>
-            <div class="column story-value">142</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">5</div>
-            <div class="column is-9 story-title"><a title="Curse of dimensionality" href="https://news.ycombinator.com/item?id=4045143" target="_blank">Curse of dimensionality</a></div>
-            <div class="column story-value">88</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">6</div>
-            <div class="column is-9 story-title"><a title="List of emerging technologies" href="https://news.ycombinator.com/item?id=3987566" target="_blank">List of emerging technologies</a></div>
-            <div class="column story-value">76</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">7</div>
-            <div class="column is-9 story-title"><a title="Lego - the Largest Tyre Manufacturer in the World" href="https://news.ycombinator.com/item?id=4000096" target="_blank">Lego - the Largest Tyre Manufacturer in the World</a></div>
-            <div class="column story-value">65</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">8</div>
-            <div class="column is-9 story-title"><a title="Malbolge (programming language)" href="https://news.ycombinator.com/item?id=4042148" target="_blank">Malbolge (programming language)</a></div>
-            <div class="column story-value">40</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">9</div>
-            <div class="column is-9 story-title"><a title="Facebook: 29 Acquisitions and Counting - Who is next?" href="https://news.ycombinator.com/item?id=4045164" target="_blank">Facebook: 29 Acquisitions and Counting - Who is next?</a></div>
-            <div class="column story-value">9</div>
-        </div>
-    
-        <div class="columns is-mobile ">
-            <div class="column is-1 rank-no">10</div>
-            <div class="column is-9 story-title"><a title="IBM Simon, World's First Smartphone From 1993" href="https://news.ycombinator.com/item?id=3994923" target="_blank">IBM Simon, World's First Smartphone From 1993</a></div>
-            <div class="column story-value">8</div>
-        </div>
-    
-</div>
-
-<div class="column is-one-third-widescreen is-half-desktop">
-    <div class="columns has-text-centered">
-        <div class="column">
             <h3 title="Posts matching the following domain: 'substack.com'">Substack [?]</h3>
         </div>
     </div>
@@ -1461,6 +1551,7 @@ h3{
           </p>
         </div>
       </footer>
+      <script src="/main.js" defer></script>
 </body>
 
 </html>
